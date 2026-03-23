@@ -5,16 +5,18 @@ topology.py — 3-Domain SR Testbed Topology with FRR
 Research: Privacy-Preserving Dynamic Re-computation for Multi-Domain SR
 
 Usage:
-  sudo python3 topology.py
+  sudo python3 3dTopology.py
 
 Inside Mininet CLI:
   verify_isis    — check IS-IS adjacencies on all nodes
   verify_bgp     — check eBGP sessions on all ASBRs
-  verify_sr      — check SR SID allocations
-  ping_loopback  — end-to-end A-PE1 → C-PE1 test
+  verify_e2e     — end-to-end reachability check
+  ping_loopback  — A-PE1 → C-PE1 ping test
+  fix_routes     — re-run kernel route fix
   frr_status <n> — FRR daemon status for a node
   show_route <n> — IP routing table for a node
-  frr_log <n> <d>— tail FRR log for node+daemon
+  frr_log <n> <d>— tail FRR log
+  bgp_routes <n> — BGP table for an ASBR
   exit           — shut down
 
 Cleanup: sudo mn -c
@@ -72,7 +74,6 @@ ASBR_NODES = {
     'c_asbr1', 'c_asbr2',
 }
 
-# eBGP peer IP for each ASBR (used for next-hop-self and route-map)
 ASBR_PEERS = {
     'a_asbr1': '10.100.12.2',
     'a_asbr2': '10.100.12.6',
@@ -84,7 +85,6 @@ ASBR_PEERS = {
     'c_asbr2': '10.100.23.5',
 }
 
-# BGP AS for each ASBR domain
 ASBR_AS = {
     'a_asbr1': 65001, 'a_asbr2': 65001,
     'b_asbr1': 65002, 'b_asbr2': 65002,
@@ -102,11 +102,14 @@ class LinuxRouter(Node):
     def config(self, **params):
         super().config(**params)
         self.cmd('sysctl -w net.ipv4.ip_forward=1')
+        self.cmd('sysctl -w net.ipv4.conf.all.rp_filter=0')
+        self.cmd('sysctl -w net.ipv4.conf.default.rp_filter=0')
         self.cmd('sysctl -w net.mpls.platform_labels=1000')
         self.cmd('sysctl -w net.mpls.conf.lo.input=1')
         for intf in self.intfList():
             if intf.name != 'lo':
                 self.cmd(f'sysctl -w net.mpls.conf.{intf.name}.input=1')
+                self.cmd(f'sysctl -w net.ipv4.conf.{intf.name}.rp_filter=0')
 
     def terminate(self):
         node_run = f'{RUN_DIR}/{self.name}'
@@ -235,10 +238,8 @@ def start_frr(net):
 
         node.cmd(f'mkdir -p {node_run} {node_log}')
 
-        # mgmtd — must start first in FRR 10.x
         node.cmd(
-            f'{FRR_MGMT} -f {cfg} '
-            f'-u root -g root '
+            f'{FRR_MGMT} -f {cfg} -u root -g root '
             f'-i {node_run}/mgmtd.pid '
             f'-z {node_run}/zserv.api '
             f'--vty_socket {node_run} '
@@ -247,10 +248,8 @@ def start_frr(net):
         )
         time.sleep(0.5)
 
-        # Zebra
         node.cmd(
-            f'{FRR_ZEBRA} -f {cfg} '
-            f'-u root -g root '
+            f'{FRR_ZEBRA} -f {cfg} -u root -g root '
             f'-i {node_run}/zebra.pid '
             f'-z {node_run}/zserv.api '
             f'--vty_socket {node_run} '
@@ -259,10 +258,8 @@ def start_frr(net):
         )
         time.sleep(0.3)
 
-        # IS-IS
         node.cmd(
-            f'{FRR_ISIS} -f {cfg} '
-            f'-u root -g root '
+            f'{FRR_ISIS} -f {cfg} -u root -g root '
             f'-i {node_run}/isisd.pid '
             f'-z {node_run}/zserv.api '
             f'--vty_socket {node_run} '
@@ -271,11 +268,9 @@ def start_frr(net):
         )
         time.sleep(0.5)
 
-        # BGP (ASBRs only)
         if node_name in ASBR_NODES:
             node.cmd(
-                f'{FRR_BGP} -f {cfg} '
-                f'-u root -g root '
+                f'{FRR_BGP} -f {cfg} -u root -g root '
                 f'-i {node_run}/bgpd.pid '
                 f'-z {node_run}/zserv.api '
                 f'--vty_socket {node_run} '
@@ -284,7 +279,6 @@ def start_frr(net):
             )
         time.sleep(0.3)
 
-        # Load config into all running daemons via vtysh
         node.cmd(f'vtysh --vty_socket {node_run}/ -f {cfg} 2>/dev/null')
         info(f'  [OK] {node_name}\n')
 
@@ -292,29 +286,11 @@ def start_frr(net):
 
 
 # ─────────────────────────────────────────────
-#  Post-startup config — fixes cross-domain routing
+#  Post-startup routing policies
 # ─────────────────────────────────────────────
 
 def post_config(net):
-    """
-    Apply routing policies that cannot be in the static frr.conf
-    because they depend on all daemons being fully up:
-      1. route-map ALLOW-ALL — permits all BGP advertisements
-      2. redistribute ipv4 bgp level-2 — leaks BGP routes into IS-IS
-         so internal routers (a_pe1, c_pe1) can reach other domains
-      3. next-hop-self — rewrites next-hop on eBGP advertisements
-         so receiving domain can forward without knowing internal topology
-      4. clear bgp soft — triggers route refresh after policy changes
-    """
     info('\n*** Applying cross-domain routing policies\n')
-
-    def vc(node, node_name, *cmds):
-        """Run multiple vtysh commands in a single conf t session."""
-        cmd_str = '" -c "'.join(cmds)
-        return node.cmd(
-            f'vtysh --vty_socket {RUN_DIR}/{node_name}/ '
-            f'-c "conf t" -c "{cmd_str}" -c "end" 2>/dev/null'
-        )
 
     for node_name in ASBR_NODES:
         node = net.get(node_name)
@@ -322,18 +298,12 @@ def post_config(net):
         asn  = ASBR_AS[node_name]
         run  = f'{RUN_DIR}/{node_name}/'
 
-        # Step 1 — define route-map ALLOW-ALL
         node.cmd(
-            f'vtysh --vty_socket {run} '
-            f'-c "conf t" '
-            f'-c "route-map ALLOW-ALL permit 10" '
-            f'-c "end" 2>/dev/null'
+            f'vtysh --vty_socket {run} -c "conf t" '
+            f'-c "route-map ALLOW-ALL permit 10" -c "end" 2>/dev/null'
         )
-
-        # Step 2 — add redistribute bgp into IS-IS + next-hop-self into BGP
         node.cmd(
-            f'vtysh --vty_socket {run} '
-            f'-c "conf t" '
+            f'vtysh --vty_socket {run} -c "conf t" '
             f'-c "router isis CORE" '
             f'-c "redistribute ipv4 bgp level-2" '
             f'-c "exit" '
@@ -344,38 +314,78 @@ def post_config(net):
             f'-c "neighbor {peer} route-map ALLOW-ALL out" '
             f'-c "redistribute isis" '
             f'-c "redistribute connected" '
-            f'-c "exit" '
-            f'-c "end" 2>/dev/null'
+            f'-c "exit" -c "end" 2>/dev/null'
         )
-
-        # Step 3 — soft reset BGP to push updated policies immediately
         node.cmd(
             f'vtysh --vty_socket {run} '
             f'-c "clear bgp {peer} soft" 2>/dev/null'
         )
-
         info(f'  [OK] {node_name}\n')
 
-    info('*** Waiting 20s for routes to propagate...\n')
-    time.sleep(20)
+    info('*** Waiting 25s for routes to propagate...\n')
+    time.sleep(25)
+
+
+def fix_kernel_routes(net):
+    """
+    Workaround for Mininet + FRR 10.x SR-MPLS kernel route issue.
+    FRR installs routes with MPLS-encap nexthop objects that Mininet
+    namespaces cannot execute. Replace them with plain IP routes.
+    Control-plane SR path computation (ADSO contribution) is unaffected.
+    """
+    info('\n*** Fixing kernel routes for Mininet compatibility\n')
+
+    for node_name in LOOPBACKS.keys():
+        node  = net.get(node_name)
+        fixed = 0
+
+        for proto in ['isis', 'bgp']:
+            raw = node.cmd(f'ip route show proto {proto} 2>/dev/null')
+            for line in raw.splitlines():
+                line = line.strip()
+                if not line or 'via' not in line or 'dev' not in line:
+                    continue
+                if line.startswith('nexthop'):
+                    continue
+                parts = line.split()
+                if not parts:
+                    continue
+                dst = parts[0]
+                try:
+                    via_idx = parts.index('via')
+                    gw      = parts[via_idx + 1]
+                    dev_idx = parts.index('dev')
+                    dev     = parts[dev_idx + 1]
+                except (ValueError, IndexError):
+                    continue
+                node.cmd(
+                    f'ip route replace {dst} via {gw} dev {dev} '
+                    f'proto {proto} 2>/dev/null'
+                )
+                fixed += 1
+
+        node.cmd('sysctl -w net.ipv4.conf.all.rp_filter=0 2>/dev/null')
+        node.cmd('sysctl -w net.ipv4.conf.default.rp_filter=0 2>/dev/null')
+        info(f'  [OK] {node_name}: {fixed} route(s) fixed\n')
+
+    info('*** Waiting 5s after route fix...\n')
+    time.sleep(5)
 
 
 # ─────────────────────────────────────────────
-#  Verification helpers
+#  Verification
 # ─────────────────────────────────────────────
 
 def vtysh(node, node_name, cmd):
     return node.cmd(
-        f'{VTYSH} '
-        f'--vty_socket {RUN_DIR}/{node_name}/ '
+        f'{VTYSH} --vty_socket {RUN_DIR}/{node_name}/ '
         f'-c "{cmd}" 2>/dev/null'
     )
 
 
 def verify_isis(net):
     info('\n*** IS-IS Adjacencies\n')
-    nodes = list(LOOPBACKS.keys())
-    for n in nodes:
+    for n in LOOPBACKS.keys():
         result = vtysh(net.get(n), n, 'show isis neighbor')
         up = result.count('Up')
         info(f'  {"✓" if up > 0 else "✗"} {n}: {up} neighbor(s)\n')
@@ -399,18 +409,22 @@ def verify_sr(net):
 
 
 def verify_e2e(net):
-    """Quick end-to-end reachability check across all 3 domains."""
-    info('\n*** End-to-End Reachability Check\n')
+    info('\n*** End-to-End Reachability\n')
     tests = [
-        ('a_pe1',  '10.0.2.1',  'A-PE1 → B-R1 (cross A→B)'),
-        ('a_pe1',  '10.0.3.1',  'A-PE1 → C-PE1 (cross A→B→C)'),
-        ('c_pe1',  '10.0.1.1',  'C-PE1 → A-PE1 (reverse C→B→A)'),
-        ('b_r1',   '10.0.3.1',  'B-R1  → C-PE1 (cross B→C)'),
+        ('a_pe1', '10.0.2.1', 'A-PE1 → B-R1  (A→B)'),
+        ('a_pe1', '10.0.3.1', 'A-PE1 → C-PE1 (A→B→C)'),
+        ('c_pe1', '10.0.1.1', 'C-PE1 → A-PE1 (C→B→A)'),
+        ('b_r2',  '10.0.1.1', 'B-R2  → A-PE1 (B→A)'),
+        ('b_r2',  '10.0.3.1', 'B-R2  → C-PE1 (B→C)'),
     ]
-    for src_name, dst, label in tests:
-        result = net.get(src_name).cmd(f'ping -c 2 -W 1 {dst}')
+    all_ok = True
+    for src, dst, label in tests:
+        result = net.get(src).cmd(f'ping -c 2 -W 1 {dst}')
         ok = '2 received' in result or '1 received' in result
         info(f'  {"✓" if ok else "✗"} {label}\n')
+        if not ok:
+            all_ok = False
+    return all_ok
 
 
 # ─────────────────────────────────────────────
@@ -436,15 +450,14 @@ class SRCLI(MininetCLI):
         verify_e2e(self.mn)
 
     def do_frr_status(self, line):
-        'Show FRR daemon status: frr_status <node>'
+        'FRR daemon status: frr_status <node>'
         n = line.strip()
         if not n:
             print('Usage: frr_status <node_name>')
             return
-        node = self.mn.get(n)
-        run  = f'{RUN_DIR}/{n}'
+        run = f'{RUN_DIR}/{n}'
         for d in ['mgmtd', 'zebra', 'isisd', 'bgpd']:
-            r = node.cmd(
+            r = self.mn.get(n).cmd(
                 f'[ -f {run}/{d}.pid ] && '
                 f'kill -0 $(cat {run}/{d}.pid) 2>/dev/null '
                 f'&& echo running || echo stopped'
@@ -452,7 +465,7 @@ class SRCLI(MininetCLI):
             print(f'  {d}: {r.strip()}')
 
     def do_show_route(self, line):
-        'Show IP routing table: show_route <node>'
+        'IP routing table: show_route <node>'
         n = line.strip()
         if not n:
             print('Usage: show_route <node_name>')
@@ -460,42 +473,38 @@ class SRCLI(MininetCLI):
         print(vtysh(self.mn.get(n), n, 'show ip route'))
 
     def do_ping_loopback(self, _):
-        'End-to-end SR test: A-PE1 loopback → C-PE1 loopback'
+        'End-to-end test: A-PE1 → C-PE1'
         info('\n*** Pinging 10.0.3.1 from A-PE1 (10.0.1.1)\n')
-        result = self.mn.get('a_pe1').cmd('ping -c 4 -I 10.0.1.1 10.0.3.1')
-        print(result)
+        print(self.mn.get('a_pe1').cmd('ping -c 4 -I 10.0.1.1 10.0.3.1'))
 
     def do_frr_log(self, line):
-        'Show FRR log: frr_log <node> <daemon>  e.g. frr_log a_r1 isisd'
+        'Tail FRR log: frr_log <node> <daemon>'
         parts = line.strip().split()
         if len(parts) != 2:
             print('Usage: frr_log <node> <daemon>')
             return
-        n, d  = parts
-        log   = f'{LOG_DIR}/{n}/{d}.log'
-        node  = self.mn.get(n)
-        print(node.cmd(f'tail -30 {log} 2>/dev/null || echo "Log not found: {log}"'))
+        n, d = parts
+        log  = f'{LOG_DIR}/{n}/{d}.log'
+        print(self.mn.get(n).cmd(
+            f'tail -30 {log} 2>/dev/null || echo "Log not found: {log}"'
+        ))
 
     def do_bgp_routes(self, line):
-        'Show BGP table for an ASBR: bgp_routes <node>'
+        'BGP table: bgp_routes <node>'
         n = line.strip()
         if not n:
             print('Usage: bgp_routes <asbr_node>')
             return
         print(vtysh(self.mn.get(n), n, 'show bgp ipv4 unicast'))
 
-    def do_mpls_table(self, line):
-        'Show MPLS forwarding table: mpls_table <node>'
-        n = line.strip()
-        if not n:
-            print('Usage: mpls_table <node_name>')
-            return
-        result = self.mn.get(n).cmd('ip -M route show 2>/dev/null')
-        print(result if result.strip() else '(empty MPLS table)')
+    def do_fix_routes(self, _):
+        'Re-run kernel route fix if connectivity breaks'
+        fix_kernel_routes(self.mn)
+        verify_e2e(self.mn)
 
 
 # ─────────────────────────────────────────────
-#  Summary
+#  Main
 # ─────────────────────────────────────────────
 
 def print_summary():
@@ -505,28 +514,18 @@ def print_summary():
     info('  Domain A  AS65001  SRGB 16000-16999  lo 10.0.1.x\n')
     info('  Domain B  AS65002  SRGB 17000-17999  lo 10.0.2.x\n')
     info('  Domain C  AS65003  SRGB 18000-18999  lo 10.0.3.x\n\n')
-    info('  CLI commands:\n')
-    info('    verify_isis    verify_bgp     verify_sr\n')
-    info('    verify_e2e     ping_loopback\n')
-    info('    frr_status <n> show_route <n> frr_log <n> <d>\n')
-    info('    bgp_routes <n> mpls_table <n>\n')
+    info('  CLI: verify_isis | verify_bgp | verify_sr | verify_e2e\n')
+    info('       ping_loopback | fix_routes\n')
+    info('       frr_status <n> | show_route <n> | frr_log <n> <d>\n')
+    info('       bgp_routes <n>\n')
     info('='*62 + '\n\n')
 
-
-# ─────────────────────────────────────────────
-#  Main
-# ─────────────────────────────────────────────
 
 def run():
     setLogLevel('info')
     info('*** Building 3-domain SR testbed\n')
 
-    net = Mininet(
-        topo=SRTestbedTopo(),
-        controller=None,
-        waitConnected=True
-    )
-
+    net = Mininet(topo=SRTestbedTopo(), controller=None, waitConnected=True)
     net.start()
     configure_loopbacks(net)
 
@@ -541,19 +540,20 @@ def run():
         time.sleep(15)
         verify_bgp(net)
 
-        # Apply cross-domain routing policies
         post_config(net)
+        fix_kernel_routes(net)
 
         info('\n*** Verifying end-to-end reachability...\n')
-        verify_e2e(net)
-
+        ok = verify_e2e(net)
+        if ok:
+            info('*** All paths reachable ✓\n\n')
+        else:
+            warn('*** Some paths still unreachable — run fix_routes in CLI\n\n')
     else:
-        warn('\n*** Topology up but FRR not started\n')
-        warn('    Ensure configs exist at: ' + CONFIGS_DIR + '\n\n')
+        warn('\n*** FRR not started — check: ' + CONFIGS_DIR + '\n\n')
 
     print_summary()
     SRCLI(net)
-
     net.stop()
     os.system(f'rm -rf {RUN_DIR} {LOG_DIR}')
 
