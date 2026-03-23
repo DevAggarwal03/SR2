@@ -89,7 +89,7 @@ class LinuxRouter(Node):
 
     def terminate(self):
         node_run = f'{RUN_DIR}/{self.name}'
-        for daemon in ['zebra', 'isisd', 'bgpd']:
+        for daemon in ['bgpd', 'isisd', 'zebra', 'mgmtd']:
             self.cmd(
                 f'[ -f {node_run}/{daemon}.pid ] && '
                 f'kill $(cat {node_run}/{daemon}.pid) 2>/dev/null; true'
