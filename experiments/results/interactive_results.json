@@ -1,0 +1,194 @@
+[
+  {
+    "timestamp": 1774249131.6972628,
+    "datetime": "2026-03-23T06:58:51.697344",
+    "event": "failure_injection",
+    "domain_id": "A",
+    "failure_type": "link_failure",
+    "scenario": "manual-A-link_failure"
+  },
+  {
+    "timestamp": 1774249131.7195385,
+    "datetime": "2026-03-23T06:58:51.719541",
+    "event": "adso_notification",
+    "domain_id": "A",
+    "reasons": [
+      "delay_threshold: 12.5ms > 8.0ms"
+    ],
+    "metrics": {
+      "domain_id": "A",
+      "timestamp": 1774249131.7193205,
+      "min_delay_ms": 12.5,
+      "max_bandwidth_mbps": 350.0,
+      "max_sid_depth": 8,
+      "packet_loss_rate": 0.02,
+      "asbr_reachable": true
+    },
+    "scenario": "manual-A-link_failure"
+  },
+  {
+    "timestamp": 1774249131.728428,
+    "datetime": "2026-03-23T06:58:51.728431",
+    "event": "reconvergence",
+    "scenario": "manual-A-link_failure",
+    "method": "ADSO",
+    "policy_id": "policy-a_pe1-c_pe1-1774249131",
+    "segment_list": [
+      16001,
+      16010,
+      17012,
+      18001
+    ],
+    "reconv_ms": 31.505346298217773,
+    "adso_to_push_ms": 8.923053741455078,
+    "push_latency_ms": 8.354425430297852
+  },
+  {
+    "timestamp": 1774249278.6125128,
+    "datetime": "2026-03-23T07:01:18.612514",
+    "event": "failure_injection",
+    "domain_id": "B",
+    "failure_type": "asbr_degradation",
+    "scenario": "manual-B-asbr_degradation"
+  },
+  {
+    "timestamp": 1774249278.6341026,
+    "datetime": "2026-03-23T07:01:18.634106",
+    "event": "adso_notification",
+    "domain_id": "B",
+    "reasons": [
+      "loss_threshold: 8.0% > 5.0%"
+    ],
+    "metrics": {
+      "domain_id": "B",
+      "timestamp": 1774249278.6336584,
+      "min_delay_ms": 6.0,
+      "max_bandwidth_mbps": 200.0,
+      "max_sid_depth": 8,
+      "packet_loss_rate": 0.08,
+      "asbr_reachable": true
+    },
+    "scenario": "manual-B-asbr_degradation"
+  },
+  {
+    "timestamp": 1774249278.6452549,
+    "datetime": "2026-03-23T07:01:18.645256",
+    "event": "reconvergence",
+    "scenario": "manual-B-asbr_degradation",
+    "method": "ADSO",
+    "policy_id": "policy-a_pe1-c_pe1-1774249278",
+    "segment_list": [
+      16001,
+      16010,
+      17012,
+      18001
+    ],
+    "reconv_ms": 32.8214168548584,
+    "adso_to_push_ms": 11.229515075683594,
+    "push_latency_ms": 10.29062271118164
+  },
+  {
+    "timestamp": 1774252380.0949218,
+    "datetime": "2026-03-23T07:53:00.094924",
+    "event": "failure_injection",
+    "domain_id": "C",
+    "failure_type": "asbr_down",
+    "scenario": "manual-C-asbr_down"
+  },
+  {
+    "timestamp": 1774252380.1173363,
+    "datetime": "2026-03-23T07:53:00.117425",
+    "event": "adso_notification",
+    "domain_id": "C",
+    "reasons": [
+      "loss_threshold: 100.0% > 5.0%"
+    ],
+    "metrics": {
+      "domain_id": "C",
+      "timestamp": 1774252380.116994,
+      "min_delay_ms": 0.0,
+      "max_bandwidth_mbps": 0.0,
+      "max_sid_depth": 0,
+      "packet_loss_rate": 1.0,
+      "asbr_reachable": false
+    },
+    "scenario": "manual-C-asbr_down"
+  },
+  {
+    "timestamp": 1774252380.1256247,
+    "datetime": "2026-03-23T07:53:00.125627",
+    "event": "reconvergence",
+    "scenario": "manual-C-asbr_down",
+    "method": "ADSO",
+    "policy_id": "policy-a_pe1-c_pe1-1774252380",
+    "segment_list": [
+      16001,
+      16010,
+      17012,
+      18001
+    ],
+    "reconv_ms": 31.05926513671875,
+    "adso_to_push_ms": 8.500099182128906,
+    "push_latency_ms": 7.754325866699219
+  },
+  {
+    "timestamp": 1774252427.5194688,
+    "datetime": "2026-03-23T07:53:47.519471",
+    "event": "failure_injection",
+    "domain_id": "A",
+    "failure_type": "recovery",
+    "scenario": "manual-A-recovery"
+  },
+  {
+    "timestamp": 1774252451.962323,
+    "datetime": "2026-03-23T07:54:11.962325",
+    "event": "failure_injection",
+    "domain_id": "B",
+    "failure_type": "recovery",
+    "scenario": "manual-B-recovery"
+  },
+  {
+    "timestamp": 1774252457.3045173,
+    "datetime": "2026-03-23T07:54:17.304519",
+    "event": "failure_injection",
+    "domain_id": "C",
+    "failure_type": "recovery",
+    "scenario": "manual-C-recovery"
+  },
+  {
+    "timestamp": 1774252457.3255596,
+    "datetime": "2026-03-23T07:54:17.325560",
+    "event": "adso_notification",
+    "domain_id": "C",
+    "reasons": [
+      "asbr_state_change: ASBR now UP"
+    ],
+    "metrics": {
+      "domain_id": "C",
+      "timestamp": 1774252457.3254275,
+      "min_delay_ms": 2.0,
+      "max_bandwidth_mbps": 500.0,
+      "max_sid_depth": 8,
+      "packet_loss_rate": 0.0,
+      "asbr_reachable": true
+    },
+    "scenario": "manual-C-recovery"
+  },
+  {
+    "timestamp": 1774252457.3382065,
+    "datetime": "2026-03-23T07:54:17.338208",
+    "event": "reconvergence",
+    "scenario": "manual-C-recovery",
+    "method": "ADSO",
+    "policy_id": "policy-a_pe1-c_pe1-1774252457",
+    "segment_list": [
+      16001,
+      16010,
+      17012,
+      18001
+    ],
+    "reconv_ms": 33.79654884338379,
+    "adso_to_push_ms": 12.68625259399414,
+    "push_latency_ms": 12.310028076171875
+  }
+]
