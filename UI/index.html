@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SR-ADSO | Multi-Domain Segment Routing Simulation</title>
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap for Utility and Layout -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="style.css">
+    <!-- D3.js for Graph -->
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+</head>
+<body>
+    <header>
+        <h1>Abstract Domain State Object (ADSO)</h1>
+        <p>Privacy-Preserving Dynamic Re-computation for Multi-Domain Segment Routing</p>
+    </header>
+
+    <div class="dashboard-container">
+        <!-- Left Column: Topology, Triggers, Metrics -->
+        <div class="col-left">
+            <div class="card shadow-sm mb-0 flex-grow-1">
+                <div class="card-title">
+                    <span>Multi-Domain Network Topology</span>
+                    <div class="status-legend">
+                        <span class="badge" style="background:var(--secondary-color)">Domain A</span>
+                        <span class="badge" style="background:#e67e22;">Domain B</span>
+                        <span class="badge" style="background:var(--success-color)">Domain C</span>
+                    </div>
+                </div>
+                <!-- Network Graph Legend -->
+                <div class="legend mb-2">
+                    <div class="legend-item"><span class="legend-color" style="background:var(--secondary-color)"></span> PE Node</div>
+                    <div class="legend-item"><span class="legend-color" style="background:var(--warning-color)"></span> ASBR Node</div>
+                    <div class="legend-item"><span class="legend-color" style="background:#6c757d"></span> Internal Router</div>
+                    <div class="legend-item"><span class="legend-color" style="background:var(--success-color)"></span> Path</div>
+                </div>
+                <!-- D3.js Container -->
+                <div id="network-graph"></div>
+            </div>
+
+            <!-- Link Triggers (Scenario Buttons) - Now below topology -->
+            <div class="card shadow-sm">
+                <div class="card-title">Scenario Simulation Triggers</div>
+                <div class="trigger-grid" id="controls">
+                    <button class="scenario-btn" id="btn-s1" onclick="runScenario('S1')">
+                        <strong>S1: Link Fail</strong>
+                        <span>Domain A</span>
+                    </button>
+                    <button class="scenario-btn" id="btn-s2" onclick="runScenario('S2')">
+                        <strong>S2: Degraded</strong>
+                        <span>B-ASBR3 Loss</span>
+                    </button>
+                    <button class="scenario-btn" id="btn-s3" onclick="runScenario('S3')">
+                        <strong>S3: ASBR Down</strong>
+                        <span>B-ASBR3 Offline</span>
+                    </button>
+                    <button class="scenario-btn" id="btn-s4" onclick="runScenario('S4')">
+                        <strong>S4: Recovery</strong>
+                        <span>Restore Path</span>
+                    </button>
+                </div>
+                <button class="btn btn-sm btn-outline-secondary w-100 mt-2" onclick="resetSimulation()">
+                    Reset Environment
+                </button>
+            </div>
+            
+            <!-- Metrics Panel -->
+            <div class="card mb-0 shadow-sm">
+                <div class="card-title mb-2">
+                    <span>Current ADSO Metrics</span>
+                    <span id="active-domain-label" class="badge bg-secondary">Domain A</span>
+                </div>
+                <div class="metrics-grid">
+                    <div class="metric-box">
+                        <div class="metric-label">Min Delay</div>
+                        <div class="metric-value"><span id="metric-delay">2.0</span> ms</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-label">Max BW</div>
+                        <div class="metric-value"><span id="metric-bw">500</span> Mbps</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-label">Loss Rate</div>
+                        <div class="metric-value"><span id="metric-loss">0.0</span>%</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-label">ASBR Stat</div>
+                        <div class="metric-value"><span id="metric-reach">UP</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column: Log & Analysis -->
+        <div class="col-right">
+            <!-- Simulation Log (Half height) -->
+            <div class="card log-card shadow-sm">
+                <div class="card-title">
+                    <span>Simulation Event Timeline</span>
+                    <i class="bi bi-terminal small"></i>
+                </div>
+                <div id="timeline-log">
+                    <div class="log-entry">
+                        <span class="log-time">[0s]</span>
+                        <span class="log-event">Initialized</span>
+                        <div class="log-details">System monitoring active. No events.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comparison Table (Bottom half) -->
+            <div class="card shadow-sm mb-0">
+                <div class="card-title">Re-convergence Analysis</div>
+                <div class="table-responsive">
+                    <table class="table result-table mb-0">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Scenario</th>
+                                <th class="text-end">ADSO</th>
+                                <th class="text-end">BGP</th>
+                                <th class="text-end">Oracle</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>S1</td>
+                                <td>Link Fail (A)</td>
+                                <td class="text-end fw-bold text-primary">34.6s</td>
+                                <td class="text-end text-danger">489s</td>
+                                <td class="text-end text-success">8.5s</td>
+                            </tr>
+                            <tr>
+                                <td>S2</td>
+                                <td>Degrade (B)</td>
+                                <td class="text-end fw-bold text-primary">35.2s</td>
+                                <td class="text-end text-danger">347s</td>
+                                <td class="text-end text-success">7.2s</td>
+                            </tr>
+                            <tr>
+                                <td>S3</td>
+                                <td>ASBR Down (B)</td>
+                                <td class="text-end fw-bold text-primary">34.2s</td>
+                                <td class="text-end text-danger">406s</td>
+                                <td class="text-end text-success">6.8s</td>
+                            </tr>
+                            <tr>
+                                <td>S4</td>
+                                <td>Recovery (B)</td>
+                                <td class="text-end fw-bold text-primary">29.4s</td>
+                                <td class="text-end text-danger">310s</td>
+                                <td class="text-end text-success">10.2s</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="mt-2 p-2 bg-light rounded small text-muted">
+                    * Values in <strong>ms</strong> (except BGP in <strong>seconds</strong>).
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script Entry -->
+    <script src="script.js"></script>
+</body>
+</html>
