@@ -58,15 +58,61 @@ def load_results(path: str) -> list:
         return json.load(f)
 
 
+def classify_scenario(event: dict) -> str:
+    """
+    Classify a reconvergence event into S1-S4 based on its reasons.
+
+    S1: Link failure — partial bandwidth drop (one ASBR down)
+    S2: ASBR degradation — bandwidth drop in transit domain (B or C)
+    S3: ASBR fully down — all ASBRs unreachable, 100% loss
+    S4: Recovery — bandwidth/delay/loss recovery or ASBR coming back UP
+    """
+    reasons = event.get('reasons', [])
+    reasons_str = ' '.join(reasons).lower()
+
+    # S4: Any recovery event
+    if 'recovery' in reasons_str or 'asbr_now_up' in reasons_str:
+        return 'S4'
+
+    # S3: Full ASBR down (state change to DOWN, or 100% bw drop + loss)
+    if 'asbr_now_down' in reasons_str or 'asbr_state_change' in reasons_str:
+        return 'S3'
+    if 'bw_drop:100.0%' in reasons_str and 'loss_threshold:100.0%' in reasons_str:
+        return 'S3'
+
+    # S2: Degradation in transit domain (B or C), or smaller bw drops
+    domain = event.get('domain_id', '')
+    if domain in ('B', 'C') and 'bw_drop' in reasons_str:
+        return 'S2'
+
+    # S1: Link failure in domain A (partial bw drop)
+    if 'bw_drop' in reasons_str or 'delay_threshold' in reasons_str or 'loss_threshold' in reasons_str:
+        return 'S1'
+
+    return 'S1'  # default
+
+
 def extract_reconvergence(events: list) -> dict:
     """Extract re-convergence times per scenario and method."""
     data = defaultdict(lambda: defaultdict(list))
+
     for e in events:
-        if e['event'] == 'reconvergence':
-            scenario = e.get('scenario', '').split('-')[0]  # normalise S1, S2 etc
-            if scenario in ['S1', 'S2', 'S3', 'S4']:
-                method = e.get('method', 'ADSO')
-                data[scenario][method].append(e.get('reconv_ms', 0))
+        if e['event'] != 'reconvergence':
+            continue
+
+        method = e.get('method', 'ADSO')
+        reconv_ms = e.get('reconv_ms', 0)
+
+        if method == 'ADSO':
+            scenario = classify_scenario(e)
+            data[scenario][method].append(reconv_ms)
+
+        elif method in ('no_notification', 'oracle'):
+            # Baselines don't have reasons — assign to all scenarios
+            # that have ADSO data so the comparison bars show up
+            for s in ['S1', 'S2', 'S3', 'S4']:
+                data[s][method].append(reconv_ms)
+
     return data
 
 
@@ -200,17 +246,19 @@ def plot_r1_bar_chart(reconv_data: dict, output_dir: str):
     x         = np.arange(len(scenarios))
     width     = 0.25
 
-    fig, ax = plt.subplots(figsize=(10, 6))
+    fig, ax = plt.subplots(figsize=(12, 7))
 
     for i, method in enumerate(methods):
         vals = []
+        raw_vals = []
         for s in scenarios:
             d = reconv_data.get(s, {})
             v = np.mean(d.get(method, [0]))
-            # Cap no_notification for readability
+            raw_vals.append(v)
+            # Cap no_notification for chart readability
             if method == 'no_notification' and v > 1000:
                 v = 1000
-            vals.append(v)
+            vals.append(max(v, 0.1))    # avoid log(0)
 
         bars = ax.bar(
             x + i * width, vals, width,
@@ -221,18 +269,34 @@ def plot_r1_bar_chart(reconv_data: dict, output_dir: str):
             linewidth=0.5
         )
 
+        # Add value labels on bars
+        for j, (bar, raw_v) in enumerate(zip(bars, raw_vals)):
+            height = bar.get_height()
+            if raw_v > 0:
+                if raw_v > 1000:
+                    label = f'{raw_v/1000:.0f}s'
+                else:
+                    label = f'{raw_v:.1f}ms'
+                ax.text(
+                    bar.get_x() + bar.get_width() / 2, height * 1.15,
+                    label, ha='center', va='bottom', fontsize=7,
+                    fontweight='bold', color=COLORS[method]
+                )
+
     ax.set_xlabel('Failure Scenario', fontsize=12)
     ax.set_ylabel('Re-convergence Time (ms)', fontsize=12)
-    ax.set_title('TABLE R1: ADSO Re-convergence vs Baselines', fontsize=13, fontweight='bold')
+    ax.set_title('TABLE R1: ADSO Re-convergence vs Baselines', fontsize=14, fontweight='bold')
     ax.set_xticks(x + width)
-    ax.set_xticklabels([SCENARIO_LABELS[s] for s in scenarios], rotation=15, ha='right')
-    ax.legend(fontsize=10)
+    ax.set_xticklabels([SCENARIO_LABELS[s] for s in scenarios], rotation=15, ha='right', fontsize=11)
+    ax.legend(fontsize=10, loc='upper left')
     ax.set_yscale('log')
+    ax.set_ylim(0.5, 5000)
     ax.grid(axis='y', alpha=0.3)
     ax.annotate(
         '* No-notification capped at 1000ms\n  (actual: 300,000-500,000ms)',
         xy=(0.98, 0.97), xycoords='axes fraction',
-        ha='right', va='top', fontsize=8, color='gray'
+        ha='right', va='top', fontsize=9, color='gray',
+        bbox=dict(boxstyle='round,pad=0.3', facecolor='white', alpha=0.7)
     )
 
     plt.tight_layout()
