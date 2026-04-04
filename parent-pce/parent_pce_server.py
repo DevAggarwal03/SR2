@@ -99,7 +99,17 @@ class ADSOTrigger:
 
     def __init__(self):
         self.last_notif: Dict[str, float] = {}
-        self.last_m:     Dict[str, dict]  = {}
+        # Initialize with baseline healthy metrics so the first ADSO
+        # notification is compared against the known healthy state,
+        # not against nothing (which would cause missed detections).
+        baseline = {
+            'min_delay_ms': 2.0, 'max_bandwidth_mbps': 500.0,
+            'max_sid_depth': 8, 'packet_loss_rate': 0.0,
+            'asbr_reachable': True,
+        }
+        self.last_m: Dict[str, dict] = {
+            d: {**baseline, 'domain_id': d} for d in ['A', 'B', 'C']
+        }
 
     def check(self, m: dict) -> tuple:
         domain_id = m['domain_id']
@@ -443,6 +453,7 @@ class ParentPCEServer:
 
     def run(self):
         """Start the TCP server and accept Child PCE connections."""
+        print(f'[ParentPCE] Starting TCP server on {self.host}:{self.port}...', flush=True)
         server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         server.bind((self.host, self.port))
@@ -451,6 +462,7 @@ class ParentPCEServer:
 
         log.info(f'Parent PCE server listening on {self.host}:{self.port}')
         log.info('Waiting for Child PCE connections...')
+        print(f'[ParentPCE] Listening. Waiting for Child PCEs to connect...', flush=True)
 
         server.settimeout(1.0)
         try:

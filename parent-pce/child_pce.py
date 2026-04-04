@@ -45,7 +45,7 @@ from typing import Optional
 
 logging.basicConfig(
     level=logging.INFO,
-    format='%(asctime)s.%(msecs)03d [%(levelname)s] ChildPCE-%(domain)s: %(message)s',
+    format='%(asctime)s.%(msecs)03d [%(levelname)s] %(name)s: %(message)s',
     datefmt='%H:%M:%S'
 )
 
