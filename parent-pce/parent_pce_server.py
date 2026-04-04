@@ -126,14 +126,32 @@ class ADSOTrigger:
                 f"delay_threshold:{m['min_delay_ms']:.1f}ms>{self.DELAY_ABSOLUTE_MS}ms"
             )
 
+        # Delay RECOVERY
+        if prev and prev.get('min_delay_ms', 0) > self.DELAY_ABSOLUTE_MS and m['min_delay_ms'] <= self.DELAY_ABSOLUTE_MS:
+            reasons.append(
+                f"delay_recovery:{prev['min_delay_ms']:.1f}ms→{m['min_delay_ms']:.1f}ms"
+            )
+
         if prev and prev['max_bandwidth_mbps'] > 0:
             drop = (prev['max_bandwidth_mbps'] - m['max_bandwidth_mbps']) / prev['max_bandwidth_mbps']
             if drop > self.BW_RELATIVE_DROP:
                 reasons.append(f"bw_drop:{drop*100:.1f}%")
 
+        # Bandwidth RECOVERY
+        if prev and prev['max_bandwidth_mbps'] > 0:
+            recovery = (m['max_bandwidth_mbps'] - prev['max_bandwidth_mbps']) / prev['max_bandwidth_mbps']
+            if recovery > self.BW_RELATIVE_DROP:
+                reasons.append(f"bw_recovery:{recovery*100:.1f}%")
+
         if m['packet_loss_rate'] > self.LOSS_ABSOLUTE:
             reasons.append(
                 f"loss_threshold:{m['packet_loss_rate']*100:.1f}%"
+            )
+
+        # Loss RECOVERY
+        if prev and prev['packet_loss_rate'] > self.LOSS_ABSOLUTE and m['packet_loss_rate'] <= self.LOSS_ABSOLUTE:
+            reasons.append(
+                f"loss_recovery:{prev['packet_loss_rate']*100:.1f}%→{m['packet_loss_rate']*100:.1f}%"
             )
 
         if prev and prev['asbr_reachable'] != m['asbr_reachable']:
