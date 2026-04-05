@@ -528,13 +528,18 @@ def generate_baselines(recorder: ResultRecorder, scenarios: list):
             'push_ms':   0,
             'note':      'Theoretical: BGP convergence time (RFC 4271 hold timer expiry)',
         })
-        # Oracle: full topology knowledge, near-instant recomputation
+        # Oracle: full topology knowledge — skips ADSO messaging overhead,
+        # only needs recompute + PCEP push (same as ADSO minus TCP round-trip).
+        # Physically motivated: oracle has full topology in RAM so recompute
+        # is slightly faster, but PCEP push latency is identical.
+        oracle_recompute = random.uniform(0.02, 0.08)   # faster: full topo in RAM
+        oracle_push      = random.uniform(5, 10)         # same: still needs PCEP
         recorder.record('reconvergence', {
             'domain_id': s,
             'method':    'oracle',
-            'reconv_ms': random.uniform(5, 15),
-            'push_ms':   random.uniform(5, 10),
-            'note':      'Theoretical upper bound: requires full topology disclosure',
+            'reconv_ms': oracle_recompute + oracle_push,
+            'push_ms':   oracle_push,
+            'note':      'Theoretical: full topology disclosure, no ADSO messaging overhead',
         })
 
 
