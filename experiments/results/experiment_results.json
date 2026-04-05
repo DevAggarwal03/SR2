@@ -1,7 +1,7 @@
 [
   {
-    "timestamp": 1775331435.5294127,
-    "datetime": "2026-04-04T19:37:15.529416",
+    "timestamp": 1775370081.8203585,
+    "datetime": "2026-04-05T06:21:21.820366",
     "event": "adso_notification",
     "domain_id": "A",
     "reasons": [
@@ -9,18 +9,18 @@
     ],
     "metrics": {
       "domain_id": "A",
-      "timestamp": 1775331435.528881,
+      "timestamp": 1775370081.8199794,
       "min_delay_ms": 2.0,
       "max_bandwidth_mbps": 250.0,
       "max_sid_depth": 8,
       "packet_loss_rate": 0.0,
       "asbr_reachable": true
     },
-    "recv_time": 1775331435.5291028
+    "recv_time": 1775370081.820189
   },
   {
-    "timestamp": 1775331435.5410557,
-    "datetime": "2026-04-04T19:37:15.541057",
+    "timestamp": 1775370081.8304312,
+    "datetime": "2026-04-05T06:21:21.830433",
     "event": "reconvergence",
     "domain_id": "A",
     "method": "ADSO",
@@ -33,14 +33,14 @@
       17012,
       18001
     ],
-    "reconv_ms": 11.755,
-    "adso_push_ms": 11.755,
-    "recompute_ms": 0.068,
-    "push_ms": 11.354
+    "reconv_ms": 10.046,
+    "adso_push_ms": 10.046,
+    "recompute_ms": 0.037,
+    "push_ms": 9.812
   },
   {
-    "timestamp": 1775331443.3232048,
-    "datetime": "2026-04-04T19:37:23.323206",
+    "timestamp": 1775370085.9076514,
+    "datetime": "2026-04-05T06:21:25.907652",
     "event": "adso_notification",
     "domain_id": "B",
     "reasons": [
@@ -48,18 +48,18 @@
     ],
     "metrics": {
       "domain_id": "B",
-      "timestamp": 1775331443.3225758,
+      "timestamp": 1775370085.9073877,
       "min_delay_ms": 2.0,
       "max_bandwidth_mbps": 375.0,
       "max_sid_depth": 8,
       "packet_loss_rate": 0.0,
       "asbr_reachable": true
     },
-    "recv_time": 1775331443.3228762
+    "recv_time": 1775370085.907529
   },
   {
-    "timestamp": 1775331443.3306413,
-    "datetime": "2026-04-04T19:37:23.330642",
+    "timestamp": 1775370085.9224846,
+    "datetime": "2026-04-05T06:21:25.922487",
     "event": "reconvergence",
     "domain_id": "B",
     "method": "ADSO",
@@ -72,14 +72,14 @@
       17012,
       18001
     ],
-    "reconv_ms": 7.561,
-    "adso_push_ms": 7.561,
-    "recompute_ms": 0.089,
-    "push_ms": 7.117
+    "reconv_ms": 14.516,
+    "adso_push_ms": 14.516,
+    "recompute_ms": 0.042,
+    "push_ms": 14.322
   },
   {
-    "timestamp": 1775331518.3713968,
-    "datetime": "2026-04-04T19:38:38.371399",
+    "timestamp": 1775370104.7642753,
+    "datetime": "2026-04-05T06:21:44.764277",
     "event": "adso_notification",
     "domain_id": "A",
     "reasons": [
@@ -87,18 +87,18 @@
     ],
     "metrics": {
       "domain_id": "A",
-      "timestamp": 1775331518.3709652,
+      "timestamp": 1775370104.763833,
       "min_delay_ms": 2.0,
       "max_bandwidth_mbps": 500.0,
       "max_sid_depth": 8,
       "packet_loss_rate": 0.0,
       "asbr_reachable": true
     },
-    "recv_time": 1775331518.3711846
+    "recv_time": 1775370104.764089
   },
   {
-    "timestamp": 1775331518.3867738,
-    "datetime": "2026-04-04T19:38:38.386775",
+    "timestamp": 1775370104.7764068,
+    "datetime": "2026-04-05T06:21:44.776408",
     "event": "reconvergence",
     "domain_id": "A",
     "method": "ADSO",
@@ -111,14 +111,14 @@
       17012,
       18001
     ],
-    "reconv_ms": 15.442,
-    "adso_push_ms": 15.442,
-    "recompute_ms": 0.13,
-    "push_ms": 15.075
+    "reconv_ms": 12.124,
+    "adso_push_ms": 12.124,
+    "recompute_ms": 0.037,
+    "push_ms": 11.882
   },
   {
-    "timestamp": 1775331525.3273137,
-    "datetime": "2026-04-04T19:38:45.327316",
+    "timestamp": 1775370112.782515,
+    "datetime": "2026-04-05T06:21:52.782516",
     "event": "adso_notification",
     "domain_id": "B",
     "reasons": [
@@ -126,18 +126,18 @@
     ],
     "metrics": {
       "domain_id": "B",
-      "timestamp": 1775331525.3269053,
+      "timestamp": 1775370112.7822344,
       "min_delay_ms": 2.0,
       "max_bandwidth_mbps": 500.0,
       "max_sid_depth": 8,
       "packet_loss_rate": 0.0,
       "asbr_reachable": true
     },
-    "recv_time": 1775331525.3271077
+    "recv_time": 1775370112.782375
   },
   {
-    "timestamp": 1775331525.342695,
-    "datetime": "2026-04-04T19:38:45.342696",
+    "timestamp": 1775370112.7919126,
+    "datetime": "2026-04-05T06:21:52.791914",
     "event": "reconvergence",
     "domain_id": "B",
     "method": "ADSO",
@@ -150,14 +150,14 @@
       17012,
       18001
     ],
-    "reconv_ms": 15.033,
-    "adso_push_ms": 15.033,
-    "recompute_ms": 0.141,
-    "push_ms": 14.667
+    "reconv_ms": 9.384,
+    "adso_push_ms": 9.384,
+    "recompute_ms": 0.057,
+    "push_ms": 9.142
   },
   {
-    "timestamp": 1775331615.8094165,
-    "datetime": "2026-04-04T19:40:15.809418",
+    "timestamp": 1775370172.8065505,
+    "datetime": "2026-04-05T06:22:52.806551",
     "event": "adso_notification",
     "domain_id": "C",
     "reasons": [
@@ -165,18 +165,18 @@
     ],
     "metrics": {
       "domain_id": "C",
-      "timestamp": 1775331615.8090606,
+      "timestamp": 1775370172.8062887,
       "min_delay_ms": 2.0,
       "max_bandwidth_mbps": 250.0,
       "max_sid_depth": 8,
       "packet_loss_rate": 0.0,
       "asbr_reachable": true
     },
-    "recv_time": 1775331615.8092446
+    "recv_time": 1775370172.8064318
   },
   {
-    "timestamp": 1775331615.8191419,
-    "datetime": "2026-04-04T19:40:15.819143",
+    "timestamp": 1775370172.8236275,
+    "datetime": "2026-04-05T06:22:52.823629",
     "event": "reconvergence",
     "domain_id": "C",
     "method": "ADSO",
@@ -189,14 +189,14 @@
       17012,
       18001
     ],
-    "reconv_ms": 9.751,
-    "adso_push_ms": 9.751,
-    "recompute_ms": 0.063,
-    "push_ms": 9.497
+    "reconv_ms": 17.042,
+    "adso_push_ms": 17.042,
+    "recompute_ms": 0.2,
+    "push_ms": 16.706
   },
   {
-    "timestamp": 1775331621.2892754,
-    "datetime": "2026-04-04T19:40:21.289276",
+    "timestamp": 1775370176.6883903,
+    "datetime": "2026-04-05T06:22:56.688391",
     "event": "adso_notification",
     "domain_id": "B",
     "reasons": [
@@ -204,18 +204,18 @@
     ],
     "metrics": {
       "domain_id": "B",
-      "timestamp": 1775331621.2889605,
+      "timestamp": 1775370176.688066,
       "min_delay_ms": 2.0,
       "max_bandwidth_mbps": 375.0,
       "max_sid_depth": 8,
       "packet_loss_rate": 0.0,
       "asbr_reachable": true
     },
-    "recv_time": 1775331621.2891188
+    "recv_time": 1775370176.6882062
   },
   {
-    "timestamp": 1775331621.298596,
-    "datetime": "2026-04-04T19:40:21.298596",
+    "timestamp": 1775370176.6968832,
+    "datetime": "2026-04-05T06:22:56.696884",
     "event": "reconvergence",
     "domain_id": "B",
     "method": "ADSO",
@@ -228,14 +228,14 @@
       17012,
       18001
     ],
-    "reconv_ms": 9.333,
-    "adso_push_ms": 9.333,
-    "recompute_ms": 0.025,
-    "push_ms": 9.135
+    "reconv_ms": 8.527,
+    "adso_push_ms": 8.527,
+    "recompute_ms": 0.039,
+    "push_ms": 8.289
   },
   {
-    "timestamp": 1775331678.0421784,
-    "datetime": "2026-04-04T19:41:18.042183",
+    "timestamp": 1775370195.690847,
+    "datetime": "2026-04-05T06:23:15.690848",
     "event": "adso_notification",
     "domain_id": "C",
     "reasons": [
@@ -243,18 +243,18 @@
     ],
     "metrics": {
       "domain_id": "C",
-      "timestamp": 1775331678.0418763,
+      "timestamp": 1775370195.690451,
       "min_delay_ms": 2.0,
       "max_bandwidth_mbps": 500.0,
       "max_sid_depth": 8,
       "packet_loss_rate": 0.0,
       "asbr_reachable": true
     },
-    "recv_time": 1775331678.042006
+    "recv_time": 1775370195.6906724
   },
   {
-    "timestamp": 1775331678.0515537,
-    "datetime": "2026-04-04T19:41:18.051554",
+    "timestamp": 1775370195.707857,
+    "datetime": "2026-04-05T06:23:15.707858",
     "event": "reconvergence",
     "domain_id": "C",
     "method": "ADSO",
@@ -267,14 +267,14 @@
       17012,
       18001
     ],
-    "reconv_ms": 9.404,
-    "adso_push_ms": 9.404,
-    "recompute_ms": 0.031,
-    "push_ms": 9.167
+    "reconv_ms": 17.046,
+    "adso_push_ms": 17.046,
+    "recompute_ms": 0.027,
+    "push_ms": 16.83
   },
   {
-    "timestamp": 1775331684.6512444,
-    "datetime": "2026-04-04T19:41:24.651246",
+    "timestamp": 1775370203.595292,
+    "datetime": "2026-04-05T06:23:23.595294",
     "event": "adso_notification",
     "domain_id": "B",
     "reasons": [
@@ -282,18 +282,18 @@
     ],
     "metrics": {
       "domain_id": "B",
-      "timestamp": 1775331684.6506245,
+      "timestamp": 1775370203.5949101,
       "min_delay_ms": 2.0,
       "max_bandwidth_mbps": 500.0,
       "max_sid_depth": 8,
       "packet_loss_rate": 0.0,
       "asbr_reachable": true
     },
-    "recv_time": 1775331684.6507893
+    "recv_time": 1775370203.5950687
   },
   {
-    "timestamp": 1775331684.6575825,
-    "datetime": "2026-04-04T19:41:24.657583",
+    "timestamp": 1775370203.6087449,
+    "datetime": "2026-04-05T06:23:23.608748",
     "event": "reconvergence",
     "domain_id": "B",
     "method": "ADSO",
@@ -306,14 +306,14 @@
       17012,
       18001
     ],
-    "reconv_ms": 6.643,
-    "adso_push_ms": 6.643,
-    "recompute_ms": 0.074,
-    "push_ms": 6.089
+    "reconv_ms": 13.381,
+    "adso_push_ms": 13.381,
+    "recompute_ms": 0.035,
+    "push_ms": 13.09
   },
   {
-    "timestamp": 1775331757.6444628,
-    "datetime": "2026-04-04T19:42:37.644464",
+    "timestamp": 1775370255.4519467,
+    "datetime": "2026-04-05T06:24:15.451948",
     "event": "adso_notification",
     "domain_id": "A",
     "reasons": [
@@ -321,18 +321,18 @@
     ],
     "metrics": {
       "domain_id": "A",
-      "timestamp": 1775331757.6441627,
+      "timestamp": 1775370255.4516542,
       "min_delay_ms": 2.0,
       "max_bandwidth_mbps": 250.0,
       "max_sid_depth": 8,
       "packet_loss_rate": 0.0,
       "asbr_reachable": true
     },
-    "recv_time": 1775331757.644273
+    "recv_time": 1775370255.4518118
   },
   {
-    "timestamp": 1775331757.654851,
-    "datetime": "2026-04-04T19:42:37.654853",
+    "timestamp": 1775370255.4671352,
+    "datetime": "2026-04-05T06:24:15.467138",
     "event": "reconvergence",
     "domain_id": "A",
     "method": "ADSO",
@@ -345,14 +345,53 @@
       17012,
       18001
     ],
-    "reconv_ms": 10.075,
-    "adso_push_ms": 10.075,
-    "recompute_ms": 0.041,
-    "push_ms": 9.822
+    "reconv_ms": 15.161,
+    "adso_push_ms": 15.161,
+    "recompute_ms": 0.048,
+    "push_ms": 14.961
   },
   {
-    "timestamp": 1775331763.9279356,
-    "datetime": "2026-04-04T19:42:43.927936",
+    "timestamp": 1775370259.3324554,
+    "datetime": "2026-04-05T06:24:19.332456",
+    "event": "adso_notification",
+    "domain_id": "B",
+    "reasons": [
+      "bw_drop:25.0%"
+    ],
+    "metrics": {
+      "domain_id": "B",
+      "timestamp": 1775370259.3321338,
+      "min_delay_ms": 2.0,
+      "max_bandwidth_mbps": 375.0,
+      "max_sid_depth": 8,
+      "packet_loss_rate": 0.0,
+      "asbr_reachable": true
+    },
+    "recv_time": 1775370259.332274
+  },
+  {
+    "timestamp": 1775370259.340943,
+    "datetime": "2026-04-05T06:24:19.340944",
+    "event": "reconvergence",
+    "domain_id": "B",
+    "method": "ADSO",
+    "reasons": [
+      "bw_drop:25.0%"
+    ],
+    "segment_list": [
+      16001,
+      16010,
+      17012,
+      18001
+    ],
+    "reconv_ms": 8.526,
+    "adso_push_ms": 8.526,
+    "recompute_ms": 0.039,
+    "push_ms": 8.287
+  },
+  {
+    "timestamp": 1775370259.6844182,
+    "datetime": "2026-04-05T06:24:19.684420",
     "event": "adso_notification",
     "domain_id": "A",
     "reasons": [
@@ -363,18 +402,18 @@
     ],
     "metrics": {
       "domain_id": "A",
-      "timestamp": 1775331763.9275377,
+      "timestamp": 1775370259.6841195,
       "min_delay_ms": 50.0,
       "max_bandwidth_mbps": 0.0,
       "max_sid_depth": 8,
       "packet_loss_rate": 1.0,
       "asbr_reachable": false
     },
-    "recv_time": 1775331763.9277427
+    "recv_time": 1775370259.6842592
   },
   {
-    "timestamp": 1775331763.934714,
-    "datetime": "2026-04-04T19:42:43.934715",
+    "timestamp": 1775370259.70002,
+    "datetime": "2026-04-05T06:24:19.700021",
     "event": "reconvergence",
     "domain_id": "A",
     "method": "ADSO",
@@ -390,53 +429,14 @@
       17012,
       18001
     ],
-    "reconv_ms": 6.855,
-    "adso_push_ms": 6.855,
-    "recompute_ms": 0.031,
-    "push_ms": 6.617
+    "reconv_ms": 15.6,
+    "adso_push_ms": 15.6,
+    "recompute_ms": 0.052,
+    "push_ms": 15.368
   },
   {
-    "timestamp": 1775331764.272026,
-    "datetime": "2026-04-04T19:42:44.272027",
-    "event": "adso_notification",
-    "domain_id": "B",
-    "reasons": [
-      "bw_drop:25.0%"
-    ],
-    "metrics": {
-      "domain_id": "B",
-      "timestamp": 1775331764.2717113,
-      "min_delay_ms": 2.0,
-      "max_bandwidth_mbps": 375.0,
-      "max_sid_depth": 8,
-      "packet_loss_rate": 0.0,
-      "asbr_reachable": true
-    },
-    "recv_time": 1775331764.271844
-  },
-  {
-    "timestamp": 1775331764.2792604,
-    "datetime": "2026-04-04T19:42:44.279261",
-    "event": "reconvergence",
-    "domain_id": "B",
-    "method": "ADSO",
-    "reasons": [
-      "bw_drop:25.0%"
-    ],
-    "segment_list": [
-      16001,
-      16010,
-      17012,
-      18001
-    ],
-    "reconv_ms": 7.29,
-    "adso_push_ms": 7.29,
-    "recompute_ms": 0.038,
-    "push_ms": 7.055
-  },
-  {
-    "timestamp": 1775331764.9339895,
-    "datetime": "2026-04-04T19:42:44.933990",
+    "timestamp": 1775370260.1970289,
+    "datetime": "2026-04-05T06:24:20.197030",
     "event": "adso_notification",
     "domain_id": "A",
     "reasons": [
@@ -445,18 +445,18 @@
     ],
     "metrics": {
       "domain_id": "A",
-      "timestamp": 1775331764.9336646,
+      "timestamp": 1775370260.1967483,
       "min_delay_ms": 50.0,
       "max_bandwidth_mbps": 0.0,
       "max_sid_depth": 8,
       "packet_loss_rate": 1.0,
       "asbr_reachable": false
     },
-    "recv_time": 1775331764.9338114
+    "recv_time": 1775370260.1968992
   },
   {
-    "timestamp": 1775331764.9473093,
-    "datetime": "2026-04-04T19:42:44.947312",
+    "timestamp": 1775370260.2123501,
+    "datetime": "2026-04-05T06:24:20.212352",
     "event": "reconvergence",
     "domain_id": "A",
     "method": "ADSO",
@@ -470,14 +470,14 @@
       17012,
       18001
     ],
-    "reconv_ms": 13.033,
-    "adso_push_ms": 13.033,
-    "recompute_ms": 0.045,
-    "push_ms": 12.794
+    "reconv_ms": 15.301,
+    "adso_push_ms": 15.301,
+    "recompute_ms": 0.084,
+    "push_ms": 15.068
   },
   {
-    "timestamp": 1775331765.4467502,
-    "datetime": "2026-04-04T19:42:45.446751",
+    "timestamp": 1775370260.7116084,
+    "datetime": "2026-04-05T06:24:20.711609",
     "event": "adso_notification",
     "domain_id": "A",
     "reasons": [
@@ -486,18 +486,18 @@
     ],
     "metrics": {
       "domain_id": "A",
-      "timestamp": 1775331765.4464982,
+      "timestamp": 1775370260.711282,
       "min_delay_ms": 50.0,
       "max_bandwidth_mbps": 0.0,
       "max_sid_depth": 8,
       "packet_loss_rate": 1.0,
       "asbr_reachable": false
     },
-    "recv_time": 1775331765.446634
+    "recv_time": 1775370260.7114298
   },
   {
-    "timestamp": 1775331765.460179,
-    "datetime": "2026-04-04T19:42:45.460180",
+    "timestamp": 1775370260.7291758,
+    "datetime": "2026-04-05T06:24:20.729178",
     "event": "reconvergence",
     "domain_id": "A",
     "method": "ADSO",
@@ -511,14 +511,14 @@
       17012,
       18001
     ],
-    "reconv_ms": 13.37,
-    "adso_push_ms": 13.37,
-    "recompute_ms": 0.021,
-    "push_ms": 13.215
+    "reconv_ms": 17.292,
+    "adso_push_ms": 17.292,
+    "recompute_ms": 0.028,
+    "push_ms": 17.067
   },
   {
-    "timestamp": 1775331765.9531012,
-    "datetime": "2026-04-04T19:42:45.953102",
+    "timestamp": 1775370261.7103667,
+    "datetime": "2026-04-05T06:24:21.710367",
     "event": "adso_notification",
     "domain_id": "A",
     "reasons": [
@@ -527,18 +527,18 @@
     ],
     "metrics": {
       "domain_id": "A",
-      "timestamp": 1775331765.952806,
+      "timestamp": 1775370261.7100494,
       "min_delay_ms": 50.0,
       "max_bandwidth_mbps": 0.0,
       "max_sid_depth": 8,
       "packet_loss_rate": 1.0,
       "asbr_reachable": false
     },
-    "recv_time": 1775331765.9529552
+    "recv_time": 1775370261.7101853
   },
   {
-    "timestamp": 1775331765.9684434,
-    "datetime": "2026-04-04T19:42:45.968445",
+    "timestamp": 1775370261.7274148,
+    "datetime": "2026-04-05T06:24:21.727417",
     "event": "reconvergence",
     "domain_id": "A",
     "method": "ADSO",
@@ -552,14 +552,14 @@
       17012,
       18001
     ],
-    "reconv_ms": 14.898,
-    "adso_push_ms": 14.898,
-    "recompute_ms": 0.104,
-    "push_ms": 14.628
+    "reconv_ms": 16.815,
+    "adso_push_ms": 16.815,
+    "recompute_ms": 0.051,
+    "push_ms": 16.567
   },
   {
-    "timestamp": 1775331766.9279563,
-    "datetime": "2026-04-04T19:42:46.927973",
+    "timestamp": 1775370262.2340271,
+    "datetime": "2026-04-05T06:24:22.234040",
     "event": "adso_notification",
     "domain_id": "A",
     "reasons": [
@@ -568,18 +568,18 @@
     ],
     "metrics": {
       "domain_id": "A",
-      "timestamp": 1775331766.9276206,
+      "timestamp": 1775370262.2337441,
       "min_delay_ms": 50.0,
       "max_bandwidth_mbps": 0.0,
       "max_sid_depth": 8,
       "packet_loss_rate": 1.0,
       "asbr_reachable": false
     },
-    "recv_time": 1775331766.927757
+    "recv_time": 1775370262.2338774
   },
   {
-    "timestamp": 1775331766.9371023,
-    "datetime": "2026-04-04T19:42:46.937103",
+    "timestamp": 1775370262.254835,
+    "datetime": "2026-04-05T06:24:22.254837",
     "event": "reconvergence",
     "domain_id": "A",
     "method": "ADSO",
@@ -593,14 +593,14 @@
       17012,
       18001
     ],
-    "reconv_ms": 9.192,
-    "adso_push_ms": 9.192,
-    "recompute_ms": 0.03,
-    "push_ms": 8.931
+    "reconv_ms": 20.437,
+    "adso_push_ms": 20.437,
+    "recompute_ms": 0.028,
+    "push_ms": 20.216
   },
   {
-    "timestamp": 1775331767.4296212,
-    "datetime": "2026-04-04T19:42:47.429622",
+    "timestamp": 1775370262.734659,
+    "datetime": "2026-04-05T06:24:22.734660",
     "event": "adso_notification",
     "domain_id": "A",
     "reasons": [
@@ -609,18 +609,18 @@
     ],
     "metrics": {
       "domain_id": "A",
-      "timestamp": 1775331767.4293103,
+      "timestamp": 1775370262.7343843,
       "min_delay_ms": 50.0,
       "max_bandwidth_mbps": 0.0,
       "max_sid_depth": 8,
       "packet_loss_rate": 1.0,
       "asbr_reachable": false
     },
-    "recv_time": 1775331767.4294496
+    "recv_time": 1775370262.7345157
   },
   {
-    "timestamp": 1775331767.4360712,
-    "datetime": "2026-04-04T19:42:47.436072",
+    "timestamp": 1775370262.7515285,
+    "datetime": "2026-04-05T06:24:22.751530",
     "event": "reconvergence",
     "domain_id": "A",
     "method": "ADSO",
@@ -634,14 +634,14 @@
       17012,
       18001
     ],
-    "reconv_ms": 6.482,
-    "adso_push_ms": 6.482,
-    "recompute_ms": 0.027,
-    "push_ms": 6.252
+    "reconv_ms": 16.61,
+    "adso_push_ms": 16.61,
+    "recompute_ms": 0.042,
+    "push_ms": 16.407
   },
   {
-    "timestamp": 1775331767.93375,
-    "datetime": "2026-04-04T19:42:47.933751",
+    "timestamp": 1775370263.2441795,
+    "datetime": "2026-04-05T06:24:23.244180",
     "event": "adso_notification",
     "domain_id": "A",
     "reasons": [
@@ -650,18 +650,18 @@
     ],
     "metrics": {
       "domain_id": "A",
-      "timestamp": 1775331767.9335248,
+      "timestamp": 1775370263.2438512,
       "min_delay_ms": 50.0,
       "max_bandwidth_mbps": 0.0,
       "max_sid_depth": 8,
       "packet_loss_rate": 1.0,
       "asbr_reachable": false
     },
-    "recv_time": 1775331767.9336262
+    "recv_time": 1775370263.244018
   },
   {
-    "timestamp": 1775331767.9487286,
-    "datetime": "2026-04-04T19:42:47.948730",
+    "timestamp": 1775370263.2638528,
+    "datetime": "2026-04-05T06:24:23.263854",
     "event": "reconvergence",
     "domain_id": "A",
     "method": "ADSO",
@@ -675,463 +675,53 @@
       17012,
       18001
     ],
-    "reconv_ms": 14.966,
-    "adso_push_ms": 14.966,
-    "recompute_ms": 0.027,
-    "push_ms": 14.801
-  },
-  {
-    "timestamp": 1775331768.3713577,
-    "datetime": "2026-04-04T19:42:48.371359",
-    "event": "adso_notification",
-    "domain_id": "B",
-    "reasons": [
-      "bw_drop:33.3%"
-    ],
-    "metrics": {
-      "domain_id": "B",
-      "timestamp": 1775331768.3710694,
-      "min_delay_ms": 2.0,
-      "max_bandwidth_mbps": 250.0,
-      "max_sid_depth": 8,
-      "packet_loss_rate": 0.0,
-      "asbr_reachable": true
-    },
-    "recv_time": 1775331768.3712196
-  },
-  {
-    "timestamp": 1775331768.3856084,
-    "datetime": "2026-04-04T19:42:48.385610",
-    "event": "reconvergence",
-    "domain_id": "B",
-    "method": "ADSO",
-    "reasons": [
-      "bw_drop:33.3%"
-    ],
-    "segment_list": [
-      16001,
-      16010,
-      17012,
-      18001
-    ],
-    "reconv_ms": 14.173,
-    "adso_push_ms": 14.173,
-    "recompute_ms": 0.033,
-    "push_ms": 13.985
-  },
-  {
-    "timestamp": 1775331768.437909,
-    "datetime": "2026-04-04T19:42:48.437910",
-    "event": "adso_notification",
-    "domain_id": "A",
-    "reasons": [
-      "delay_threshold:50.0ms>8.0ms",
-      "loss_threshold:100.0%"
-    ],
-    "metrics": {
-      "domain_id": "A",
-      "timestamp": 1775331768.4372814,
-      "min_delay_ms": 50.0,
-      "max_bandwidth_mbps": 0.0,
-      "max_sid_depth": 8,
-      "packet_loss_rate": 1.0,
-      "asbr_reachable": false
-    },
-    "recv_time": 1775331768.4376566
-  },
-  {
-    "timestamp": 1775331768.4465215,
-    "datetime": "2026-04-04T19:42:48.446523",
-    "event": "reconvergence",
-    "domain_id": "A",
-    "method": "ADSO",
-    "reasons": [
-      "delay_threshold:50.0ms>8.0ms",
-      "loss_threshold:100.0%"
-    ],
-    "segment_list": [
-      16001,
-      16010,
-      17012,
-      18001
-    ],
-    "reconv_ms": 8.402,
-    "adso_push_ms": 8.402,
-    "recompute_ms": 0.076,
-    "push_ms": 8.048
-  },
-  {
-    "timestamp": 1775331768.942565,
-    "datetime": "2026-04-04T19:42:48.942566",
-    "event": "adso_notification",
-    "domain_id": "A",
-    "reasons": [
-      "delay_threshold:50.0ms>8.0ms",
-      "loss_threshold:100.0%"
-    ],
-    "metrics": {
-      "domain_id": "A",
-      "timestamp": 1775331768.9422712,
-      "min_delay_ms": 50.0,
-      "max_bandwidth_mbps": 0.0,
-      "max_sid_depth": 8,
-      "packet_loss_rate": 1.0,
-      "asbr_reachable": false
-    },
-    "recv_time": 1775331768.942419
-  },
-  {
-    "timestamp": 1775331768.956784,
-    "datetime": "2026-04-04T19:42:48.956785",
-    "event": "reconvergence",
-    "domain_id": "A",
-    "method": "ADSO",
-    "reasons": [
-      "delay_threshold:50.0ms>8.0ms",
-      "loss_threshold:100.0%"
-    ],
-    "segment_list": [
-      16001,
-      16010,
-      17012,
-      18001
-    ],
-    "reconv_ms": 14.228,
-    "adso_push_ms": 14.228,
-    "recompute_ms": 0.024,
-    "push_ms": 14.022
-  },
-  {
-    "timestamp": 1775331769.455126,
-    "datetime": "2026-04-04T19:42:49.455127",
-    "event": "adso_notification",
-    "domain_id": "A",
-    "reasons": [
-      "delay_threshold:50.0ms>8.0ms",
-      "loss_threshold:100.0%"
-    ],
-    "metrics": {
-      "domain_id": "A",
-      "timestamp": 1775331769.4547584,
-      "min_delay_ms": 50.0,
-      "max_bandwidth_mbps": 0.0,
-      "max_sid_depth": 8,
-      "packet_loss_rate": 1.0,
-      "asbr_reachable": false
-    },
-    "recv_time": 1775331769.4549289
-  },
-  {
-    "timestamp": 1775331769.468492,
-    "datetime": "2026-04-04T19:42:49.468493",
-    "event": "reconvergence",
-    "domain_id": "A",
-    "method": "ADSO",
-    "reasons": [
-      "delay_threshold:50.0ms>8.0ms",
-      "loss_threshold:100.0%"
-    ],
-    "segment_list": [
-      16001,
-      16010,
-      17012,
-      18001
-    ],
-    "reconv_ms": 13.413,
-    "adso_push_ms": 13.413,
-    "recompute_ms": 0.045,
-    "push_ms": 13.151
-  },
-  {
-    "timestamp": 1775331770.4622405,
-    "datetime": "2026-04-04T19:42:50.462242",
-    "event": "adso_notification",
-    "domain_id": "A",
-    "reasons": [
-      "delay_threshold:50.0ms>8.0ms",
-      "loss_threshold:100.0%"
-    ],
-    "metrics": {
-      "domain_id": "A",
-      "timestamp": 1775331770.46193,
-      "min_delay_ms": 50.0,
-      "max_bandwidth_mbps": 0.0,
-      "max_sid_depth": 8,
-      "packet_loss_rate": 1.0,
-      "asbr_reachable": false
-    },
-    "recv_time": 1775331770.4620886
-  },
-  {
-    "timestamp": 1775331770.4736326,
-    "datetime": "2026-04-04T19:42:50.473634",
-    "event": "reconvergence",
-    "domain_id": "A",
-    "method": "ADSO",
-    "reasons": [
-      "delay_threshold:50.0ms>8.0ms",
-      "loss_threshold:100.0%"
-    ],
-    "segment_list": [
-      16001,
-      16010,
-      17012,
-      18001
-    ],
-    "reconv_ms": 11.313,
-    "adso_push_ms": 11.313,
-    "recompute_ms": 0.056,
-    "push_ms": 11.087
-  },
-  {
-    "timestamp": 1775331770.9627824,
-    "datetime": "2026-04-04T19:42:50.962783",
-    "event": "adso_notification",
-    "domain_id": "A",
-    "reasons": [
-      "delay_threshold:50.0ms>8.0ms",
-      "loss_threshold:100.0%"
-    ],
-    "metrics": {
-      "domain_id": "A",
-      "timestamp": 1775331770.9625232,
-      "min_delay_ms": 50.0,
-      "max_bandwidth_mbps": 0.0,
-      "max_sid_depth": 8,
-      "packet_loss_rate": 1.0,
-      "asbr_reachable": false
-    },
-    "recv_time": 1775331770.9626584
-  },
-  {
-    "timestamp": 1775331770.973082,
-    "datetime": "2026-04-04T19:42:50.973083",
-    "event": "reconvergence",
-    "domain_id": "A",
-    "method": "ADSO",
-    "reasons": [
-      "delay_threshold:50.0ms>8.0ms",
-      "loss_threshold:100.0%"
-    ],
-    "segment_list": [
-      16001,
-      16010,
-      17012,
-      18001
-    ],
-    "reconv_ms": 10.26,
-    "adso_push_ms": 10.26,
-    "recompute_ms": 0.301,
-    "push_ms": 9.819
-  },
-  {
-    "timestamp": 1775331771.4742665,
-    "datetime": "2026-04-04T19:42:51.474268",
-    "event": "adso_notification",
-    "domain_id": "A",
-    "reasons": [
-      "delay_threshold:50.0ms>8.0ms",
-      "loss_threshold:100.0%"
-    ],
-    "metrics": {
-      "domain_id": "A",
-      "timestamp": 1775331771.4738743,
-      "min_delay_ms": 50.0,
-      "max_bandwidth_mbps": 0.0,
-      "max_sid_depth": 8,
-      "packet_loss_rate": 1.0,
-      "asbr_reachable": false
-    },
-    "recv_time": 1775331771.4741
-  },
-  {
-    "timestamp": 1775331771.4848497,
-    "datetime": "2026-04-04T19:42:51.484851",
-    "event": "reconvergence",
-    "domain_id": "A",
-    "method": "ADSO",
-    "reasons": [
-      "delay_threshold:50.0ms>8.0ms",
-      "loss_threshold:100.0%"
-    ],
-    "segment_list": [
-      16001,
-      16010,
-      17012,
-      18001
-    ],
-    "reconv_ms": 10.55,
-    "adso_push_ms": 10.55,
-    "recompute_ms": 0.066,
-    "push_ms": 10.298
-  },
-  {
-    "timestamp": 1775331772.455073,
-    "datetime": "2026-04-04T19:42:52.455074",
-    "event": "adso_notification",
-    "domain_id": "A",
-    "reasons": [
-      "delay_threshold:50.0ms>8.0ms",
-      "loss_threshold:100.0%"
-    ],
-    "metrics": {
-      "domain_id": "A",
-      "timestamp": 1775331772.4543169,
-      "min_delay_ms": 50.0,
-      "max_bandwidth_mbps": 0.0,
-      "max_sid_depth": 8,
-      "packet_loss_rate": 1.0,
-      "asbr_reachable": false
-    },
-    "recv_time": 1775331772.4544723
-  },
-  {
-    "timestamp": 1775331772.4663372,
-    "datetime": "2026-04-04T19:42:52.466338",
-    "event": "reconvergence",
-    "domain_id": "A",
-    "method": "ADSO",
-    "reasons": [
-      "delay_threshold:50.0ms>8.0ms",
-      "loss_threshold:100.0%"
-    ],
-    "segment_list": [
-      16001,
-      16010,
-      17012,
-      18001
-    ],
-    "reconv_ms": 11.708,
-    "adso_push_ms": 11.708,
-    "recompute_ms": 0.102,
-    "push_ms": 10.981
-  },
-  {
-    "timestamp": 1775331773.440495,
-    "datetime": "2026-04-04T19:42:53.440496",
-    "event": "adso_notification",
-    "domain_id": "A",
-    "reasons": [
-      "delay_threshold:50.0ms>8.0ms",
-      "loss_threshold:100.0%"
-    ],
-    "metrics": {
-      "domain_id": "A",
-      "timestamp": 1775331773.4401307,
-      "min_delay_ms": 50.0,
-      "max_bandwidth_mbps": 0.0,
-      "max_sid_depth": 8,
-      "packet_loss_rate": 1.0,
-      "asbr_reachable": false
-    },
-    "recv_time": 1775331773.4403367
-  },
-  {
-    "timestamp": 1775331773.455558,
-    "datetime": "2026-04-04T19:42:53.455560",
-    "event": "reconvergence",
-    "domain_id": "A",
-    "method": "ADSO",
-    "reasons": [
-      "delay_threshold:50.0ms>8.0ms",
-      "loss_threshold:100.0%"
-    ],
-    "segment_list": [
-      16001,
-      16010,
-      17012,
-      18001
-    ],
-    "reconv_ms": 15.058,
-    "adso_push_ms": 15.058,
-    "recompute_ms": 0.057,
-    "push_ms": 14.828
-  },
-  {
-    "timestamp": 1775331773.944405,
-    "datetime": "2026-04-04T19:42:53.944406",
-    "event": "adso_notification",
-    "domain_id": "A",
-    "reasons": [
-      "delay_threshold:50.0ms>8.0ms",
-      "loss_threshold:100.0%"
-    ],
-    "metrics": {
-      "domain_id": "A",
-      "timestamp": 1775331773.944105,
-      "min_delay_ms": 50.0,
-      "max_bandwidth_mbps": 0.0,
-      "max_sid_depth": 8,
-      "packet_loss_rate": 1.0,
-      "asbr_reachable": false
-    },
-    "recv_time": 1775331773.9442575
-  },
-  {
-    "timestamp": 1775331773.9553723,
-    "datetime": "2026-04-04T19:42:53.955373",
-    "event": "reconvergence",
-    "domain_id": "A",
-    "method": "ADSO",
-    "reasons": [
-      "delay_threshold:50.0ms>8.0ms",
-      "loss_threshold:100.0%"
-    ],
-    "segment_list": [
-      16001,
-      16010,
-      17012,
-      18001
-    ],
-    "reconv_ms": 10.967,
-    "adso_push_ms": 10.967,
-    "recompute_ms": 0.057,
-    "push_ms": 10.744
-  },
-  {
-    "timestamp": 1775331774.4474812,
-    "datetime": "2026-04-04T19:42:54.447482",
-    "event": "adso_notification",
-    "domain_id": "A",
-    "reasons": [
-      "delay_threshold:50.0ms>8.0ms",
-      "loss_threshold:100.0%"
-    ],
-    "metrics": {
-      "domain_id": "A",
-      "timestamp": 1775331774.447107,
-      "min_delay_ms": 50.0,
-      "max_bandwidth_mbps": 0.0,
-      "max_sid_depth": 8,
-      "packet_loss_rate": 1.0,
-      "asbr_reachable": false
-    },
-    "recv_time": 1775331774.447292
-  },
-  {
-    "timestamp": 1775331774.461086,
-    "datetime": "2026-04-04T19:42:54.461087",
-    "event": "reconvergence",
-    "domain_id": "A",
-    "method": "ADSO",
-    "reasons": [
-      "delay_threshold:50.0ms>8.0ms",
-      "loss_threshold:100.0%"
-    ],
-    "segment_list": [
-      16001,
-      16010,
-      17012,
-      18001
-    ],
-    "reconv_ms": 13.625,
-    "adso_push_ms": 13.625,
+    "reconv_ms": 19.675,
+    "adso_push_ms": 19.675,
     "recompute_ms": 0.026,
-    "push_ms": 13.376
+    "push_ms": 19.471
   },
   {
-    "timestamp": 1775331774.9587924,
-    "datetime": "2026-04-04T19:42:54.958793",
+    "timestamp": 1775370263.517391,
+    "datetime": "2026-04-05T06:24:23.517392",
+    "event": "adso_notification",
+    "domain_id": "B",
+    "reasons": [
+      "bw_drop:33.3%"
+    ],
+    "metrics": {
+      "domain_id": "B",
+      "timestamp": 1775370263.51712,
+      "min_delay_ms": 2.0,
+      "max_bandwidth_mbps": 250.0,
+      "max_sid_depth": 8,
+      "packet_loss_rate": 0.0,
+      "asbr_reachable": true
+    },
+    "recv_time": 1775370263.5172687
+  },
+  {
+    "timestamp": 1775370263.5319161,
+    "datetime": "2026-04-05T06:24:23.531917",
+    "event": "reconvergence",
+    "domain_id": "B",
+    "method": "ADSO",
+    "reasons": [
+      "bw_drop:33.3%"
+    ],
+    "segment_list": [
+      16001,
+      16010,
+      17012,
+      18001
+    ],
+    "reconv_ms": 14.523,
+    "adso_push_ms": 14.523,
+    "recompute_ms": 0.057,
+    "push_ms": 14.329
+  },
+  {
+    "timestamp": 1775370263.7603395,
+    "datetime": "2026-04-05T06:24:23.760342",
     "event": "adso_notification",
     "domain_id": "A",
     "reasons": [
@@ -1140,18 +730,18 @@
     ],
     "metrics": {
       "domain_id": "A",
-      "timestamp": 1775331774.95846,
+      "timestamp": 1775370263.7599027,
       "min_delay_ms": 50.0,
       "max_bandwidth_mbps": 0.0,
       "max_sid_depth": 8,
       "packet_loss_rate": 1.0,
       "asbr_reachable": false
     },
-    "recv_time": 1775331774.9586236
+    "recv_time": 1775370263.7600777
   },
   {
-    "timestamp": 1775331774.9729486,
-    "datetime": "2026-04-04T19:42:54.972949",
+    "timestamp": 1775370263.7780976,
+    "datetime": "2026-04-05T06:24:23.778100",
     "event": "reconvergence",
     "domain_id": "A",
     "method": "ADSO",
@@ -1165,219 +755,14 @@
       17012,
       18001
     ],
-    "reconv_ms": 14.159,
-    "adso_push_ms": 14.159,
-    "recompute_ms": 0.058,
-    "push_ms": 13.912
-  },
-  {
-    "timestamp": 1775331775.4718823,
-    "datetime": "2026-04-04T19:42:55.471883",
-    "event": "adso_notification",
-    "domain_id": "A",
-    "reasons": [
-      "delay_threshold:50.0ms>8.0ms",
-      "loss_threshold:100.0%"
-    ],
-    "metrics": {
-      "domain_id": "A",
-      "timestamp": 1775331775.471629,
-      "min_delay_ms": 50.0,
-      "max_bandwidth_mbps": 0.0,
-      "max_sid_depth": 8,
-      "packet_loss_rate": 1.0,
-      "asbr_reachable": false
-    },
-    "recv_time": 1775331775.471762
-  },
-  {
-    "timestamp": 1775331775.4869993,
-    "datetime": "2026-04-04T19:42:55.487001",
-    "event": "reconvergence",
-    "domain_id": "A",
-    "method": "ADSO",
-    "reasons": [
-      "delay_threshold:50.0ms>8.0ms",
-      "loss_threshold:100.0%"
-    ],
-    "segment_list": [
-      16001,
-      16010,
-      17012,
-      18001
-    ],
-    "reconv_ms": 15.041,
-    "adso_push_ms": 15.041,
-    "recompute_ms": 0.025,
-    "push_ms": 14.881
-  },
-  {
-    "timestamp": 1775331775.9834826,
-    "datetime": "2026-04-04T19:42:55.983484",
-    "event": "adso_notification",
-    "domain_id": "A",
-    "reasons": [
-      "delay_threshold:50.0ms>8.0ms",
-      "loss_threshold:100.0%"
-    ],
-    "metrics": {
-      "domain_id": "A",
-      "timestamp": 1775331775.9830127,
-      "min_delay_ms": 50.0,
-      "max_bandwidth_mbps": 0.0,
-      "max_sid_depth": 8,
-      "packet_loss_rate": 1.0,
-      "asbr_reachable": false
-    },
-    "recv_time": 1775331775.983199
-  },
-  {
-    "timestamp": 1775331775.9908118,
-    "datetime": "2026-04-04T19:42:55.990813",
-    "event": "reconvergence",
-    "domain_id": "A",
-    "method": "ADSO",
-    "reasons": [
-      "delay_threshold:50.0ms>8.0ms",
-      "loss_threshold:100.0%"
-    ],
-    "segment_list": [
-      16001,
-      16010,
-      17012,
-      18001
-    ],
-    "reconv_ms": 7.428,
-    "adso_push_ms": 7.428,
-    "recompute_ms": 0.063,
-    "push_ms": 7.056
-  },
-  {
-    "timestamp": 1775331776.9427767,
-    "datetime": "2026-04-04T19:42:56.942777",
-    "event": "adso_notification",
-    "domain_id": "A",
-    "reasons": [
-      "delay_threshold:50.0ms>8.0ms",
-      "loss_threshold:100.0%"
-    ],
-    "metrics": {
-      "domain_id": "A",
-      "timestamp": 1775331776.9421198,
-      "min_delay_ms": 50.0,
-      "max_bandwidth_mbps": 0.0,
-      "max_sid_depth": 8,
-      "packet_loss_rate": 1.0,
-      "asbr_reachable": false
-    },
-    "recv_time": 1775331776.9422896
-  },
-  {
-    "timestamp": 1775331776.9510412,
-    "datetime": "2026-04-04T19:42:56.951042",
-    "event": "reconvergence",
-    "domain_id": "A",
-    "method": "ADSO",
-    "reasons": [
-      "delay_threshold:50.0ms>8.0ms",
-      "loss_threshold:100.0%"
-    ],
-    "segment_list": [
-      16001,
-      16010,
-      17012,
-      18001
-    ],
-    "reconv_ms": 8.604,
-    "adso_push_ms": 8.604,
-    "recompute_ms": 0.049,
-    "push_ms": 8.052
-  },
-  {
-    "timestamp": 1775331777.4432292,
-    "datetime": "2026-04-04T19:42:57.443230",
-    "event": "adso_notification",
-    "domain_id": "A",
-    "reasons": [
-      "delay_threshold:50.0ms>8.0ms",
-      "loss_threshold:100.0%"
-    ],
-    "metrics": {
-      "domain_id": "A",
-      "timestamp": 1775331777.4428704,
-      "min_delay_ms": 50.0,
-      "max_bandwidth_mbps": 0.0,
-      "max_sid_depth": 8,
-      "packet_loss_rate": 1.0,
-      "asbr_reachable": false
-    },
-    "recv_time": 1775331777.443015
-  },
-  {
-    "timestamp": 1775331777.4537687,
-    "datetime": "2026-04-04T19:42:57.453770",
-    "event": "reconvergence",
-    "domain_id": "A",
-    "method": "ADSO",
-    "reasons": [
-      "delay_threshold:50.0ms>8.0ms",
-      "loss_threshold:100.0%"
-    ],
-    "segment_list": [
-      16001,
-      16010,
-      17012,
-      18001
-    ],
-    "reconv_ms": 10.609,
-    "adso_push_ms": 10.609,
-    "recompute_ms": 0.042,
-    "push_ms": 10.317
-  },
-  {
-    "timestamp": 1775331777.953112,
-    "datetime": "2026-04-04T19:42:57.953113",
-    "event": "adso_notification",
-    "domain_id": "A",
-    "reasons": [
-      "delay_threshold:50.0ms>8.0ms",
-      "loss_threshold:100.0%"
-    ],
-    "metrics": {
-      "domain_id": "A",
-      "timestamp": 1775331777.952896,
-      "min_delay_ms": 50.0,
-      "max_bandwidth_mbps": 0.0,
-      "max_sid_depth": 8,
-      "packet_loss_rate": 1.0,
-      "asbr_reachable": false
-    },
-    "recv_time": 1775331777.952987
-  },
-  {
-    "timestamp": 1775331777.9627178,
-    "datetime": "2026-04-04T19:42:57.962719",
-    "event": "reconvergence",
-    "domain_id": "A",
-    "method": "ADSO",
-    "reasons": [
-      "delay_threshold:50.0ms>8.0ms",
-      "loss_threshold:100.0%"
-    ],
-    "segment_list": [
-      16001,
-      16010,
-      17012,
-      18001
-    ],
-    "reconv_ms": 9.596,
-    "adso_push_ms": 9.596,
+    "reconv_ms": 17.777,
+    "adso_push_ms": 17.777,
     "recompute_ms": 0.061,
-    "push_ms": 9.392
+    "push_ms": 17.431
   },
   {
-    "timestamp": 1775331778.9534068,
-    "datetime": "2026-04-04T19:42:58.953408",
+    "timestamp": 1775370264.272717,
+    "datetime": "2026-04-05T06:24:24.272718",
     "event": "adso_notification",
     "domain_id": "A",
     "reasons": [
@@ -1386,18 +771,18 @@
     ],
     "metrics": {
       "domain_id": "A",
-      "timestamp": 1775331778.953093,
+      "timestamp": 1775370264.2724025,
       "min_delay_ms": 50.0,
       "max_bandwidth_mbps": 0.0,
       "max_sid_depth": 8,
       "packet_loss_rate": 1.0,
       "asbr_reachable": false
     },
-    "recv_time": 1775331778.95323
+    "recv_time": 1775370264.2725422
   },
   {
-    "timestamp": 1775331778.9671705,
-    "datetime": "2026-04-04T19:42:58.967171",
+    "timestamp": 1775370264.2909389,
+    "datetime": "2026-04-05T06:24:24.290940",
     "event": "reconvergence",
     "domain_id": "A",
     "method": "ADSO",
@@ -1411,14 +796,96 @@
       17012,
       18001
     ],
-    "reconv_ms": 13.807,
-    "adso_push_ms": 13.807,
+    "reconv_ms": 17.918,
+    "adso_push_ms": 17.918,
+    "recompute_ms": 0.03,
+    "push_ms": 17.689
+  },
+  {
+    "timestamp": 1775370264.7895339,
+    "datetime": "2026-04-05T06:24:24.789535",
+    "event": "adso_notification",
+    "domain_id": "A",
+    "reasons": [
+      "delay_threshold:50.0ms>8.0ms",
+      "loss_threshold:100.0%"
+    ],
+    "metrics": {
+      "domain_id": "A",
+      "timestamp": 1775370264.789141,
+      "min_delay_ms": 50.0,
+      "max_bandwidth_mbps": 0.0,
+      "max_sid_depth": 8,
+      "packet_loss_rate": 1.0,
+      "asbr_reachable": false
+    },
+    "recv_time": 1775370264.7893045
+  },
+  {
+    "timestamp": 1775370264.8049362,
+    "datetime": "2026-04-05T06:24:24.804938",
+    "event": "reconvergence",
+    "domain_id": "A",
+    "method": "ADSO",
+    "reasons": [
+      "delay_threshold:50.0ms>8.0ms",
+      "loss_threshold:100.0%"
+    ],
+    "segment_list": [
+      16001,
+      16010,
+      17012,
+      18001
+    ],
+    "reconv_ms": 15.476,
+    "adso_push_ms": 15.476,
+    "recompute_ms": 0.039,
+    "push_ms": 15.173
+  },
+  {
+    "timestamp": 1775370265.2938213,
+    "datetime": "2026-04-05T06:24:25.293823",
+    "event": "adso_notification",
+    "domain_id": "A",
+    "reasons": [
+      "delay_threshold:50.0ms>8.0ms",
+      "loss_threshold:100.0%"
+    ],
+    "metrics": {
+      "domain_id": "A",
+      "timestamp": 1775370265.2935362,
+      "min_delay_ms": 50.0,
+      "max_bandwidth_mbps": 0.0,
+      "max_sid_depth": 8,
+      "packet_loss_rate": 1.0,
+      "asbr_reachable": false
+    },
+    "recv_time": 1775370265.2936645
+  },
+  {
+    "timestamp": 1775370265.3034315,
+    "datetime": "2026-04-05T06:24:25.303433",
+    "event": "reconvergence",
+    "domain_id": "A",
+    "method": "ADSO",
+    "reasons": [
+      "delay_threshold:50.0ms>8.0ms",
+      "loss_threshold:100.0%"
+    ],
+    "segment_list": [
+      16001,
+      16010,
+      17012,
+      18001
+    ],
+    "reconv_ms": 9.618,
+    "adso_push_ms": 9.618,
     "recompute_ms": 0.042,
-    "push_ms": 13.572
+    "push_ms": 9.398
   },
   {
-    "timestamp": 1775331779.960079,
-    "datetime": "2026-04-04T19:42:59.960079",
+    "timestamp": 1775370265.8161416,
+    "datetime": "2026-04-05T06:24:25.816143",
     "event": "adso_notification",
     "domain_id": "A",
     "reasons": [
@@ -1427,18 +894,18 @@
     ],
     "metrics": {
       "domain_id": "A",
-      "timestamp": 1775331779.959761,
+      "timestamp": 1775370265.8156116,
       "min_delay_ms": 50.0,
       "max_bandwidth_mbps": 0.0,
       "max_sid_depth": 8,
       "packet_loss_rate": 1.0,
       "asbr_reachable": false
     },
-    "recv_time": 1775331779.959899
+    "recv_time": 1775370265.8157604
   },
   {
-    "timestamp": 1775331779.9672945,
-    "datetime": "2026-04-04T19:42:59.967296",
+    "timestamp": 1775370265.8225174,
+    "datetime": "2026-04-05T06:24:25.822519",
     "event": "reconvergence",
     "domain_id": "A",
     "method": "ADSO",
@@ -1452,137 +919,14 @@
       17012,
       18001
     ],
-    "reconv_ms": 7.281,
-    "adso_push_ms": 7.281,
-    "recompute_ms": 0.046,
-    "push_ms": 7.037
-  },
-  {
-    "timestamp": 1775331780.9801996,
-    "datetime": "2026-04-04T19:43:00.980202",
-    "event": "adso_notification",
-    "domain_id": "A",
-    "reasons": [
-      "delay_threshold:50.0ms>8.0ms",
-      "loss_threshold:100.0%"
-    ],
-    "metrics": {
-      "domain_id": "A",
-      "timestamp": 1775331780.9794948,
-      "min_delay_ms": 50.0,
-      "max_bandwidth_mbps": 0.0,
-      "max_sid_depth": 8,
-      "packet_loss_rate": 1.0,
-      "asbr_reachable": false
-    },
-    "recv_time": 1775331780.9796352
-  },
-  {
-    "timestamp": 1775331780.9869828,
-    "datetime": "2026-04-04T19:43:00.986984",
-    "event": "reconvergence",
-    "domain_id": "A",
-    "method": "ADSO",
-    "reasons": [
-      "delay_threshold:50.0ms>8.0ms",
-      "loss_threshold:100.0%"
-    ],
-    "segment_list": [
-      16001,
-      16010,
-      17012,
-      18001
-    ],
-    "reconv_ms": 7.164,
-    "adso_push_ms": 7.164,
-    "recompute_ms": 0.376,
-    "push_ms": 6.197
-  },
-  {
-    "timestamp": 1775331781.975108,
-    "datetime": "2026-04-04T19:43:01.975109",
-    "event": "adso_notification",
-    "domain_id": "A",
-    "reasons": [
-      "delay_threshold:50.0ms>8.0ms",
-      "loss_threshold:100.0%"
-    ],
-    "metrics": {
-      "domain_id": "A",
-      "timestamp": 1775331781.9748306,
-      "min_delay_ms": 50.0,
-      "max_bandwidth_mbps": 0.0,
-      "max_sid_depth": 8,
-      "packet_loss_rate": 1.0,
-      "asbr_reachable": false
-    },
-    "recv_time": 1775331781.9749691
-  },
-  {
-    "timestamp": 1775331781.9891968,
-    "datetime": "2026-04-04T19:43:01.989198",
-    "event": "reconvergence",
-    "domain_id": "A",
-    "method": "ADSO",
-    "reasons": [
-      "delay_threshold:50.0ms>8.0ms",
-      "loss_threshold:100.0%"
-    ],
-    "segment_list": [
-      16001,
-      16010,
-      17012,
-      18001
-    ],
-    "reconv_ms": 13.985,
-    "adso_push_ms": 13.985,
-    "recompute_ms": 0.067,
-    "push_ms": 13.762
-  },
-  {
-    "timestamp": 1775331782.4766858,
-    "datetime": "2026-04-04T19:43:02.476687",
-    "event": "adso_notification",
-    "domain_id": "A",
-    "reasons": [
-      "delay_threshold:50.0ms>8.0ms",
-      "loss_threshold:100.0%"
-    ],
-    "metrics": {
-      "domain_id": "A",
-      "timestamp": 1775331782.4763894,
-      "min_delay_ms": 50.0,
-      "max_bandwidth_mbps": 0.0,
-      "max_sid_depth": 8,
-      "packet_loss_rate": 1.0,
-      "asbr_reachable": false
-    },
-    "recv_time": 1775331782.476539
-  },
-  {
-    "timestamp": 1775331782.483019,
-    "datetime": "2026-04-04T19:43:02.483020",
-    "event": "reconvergence",
-    "domain_id": "A",
-    "method": "ADSO",
-    "reasons": [
-      "delay_threshold:50.0ms>8.0ms",
-      "loss_threshold:100.0%"
-    ],
-    "segment_list": [
-      16001,
-      16010,
-      17012,
-      18001
-    ],
-    "reconv_ms": 6.365,
-    "adso_push_ms": 6.365,
-    "recompute_ms": 0.062,
+    "reconv_ms": 6.589,
+    "adso_push_ms": 6.589,
+    "recompute_ms": 0.047,
     "push_ms": 6.142
   },
   {
-    "timestamp": 1775331782.987985,
-    "datetime": "2026-04-04T19:43:02.987986",
+    "timestamp": 1775370266.332438,
+    "datetime": "2026-04-05T06:24:26.332439",
     "event": "adso_notification",
     "domain_id": "A",
     "reasons": [
@@ -1591,18 +935,18 @@
     ],
     "metrics": {
       "domain_id": "A",
-      "timestamp": 1775331782.9876435,
+      "timestamp": 1775370266.3320189,
       "min_delay_ms": 50.0,
       "max_bandwidth_mbps": 0.0,
       "max_sid_depth": 8,
       "packet_loss_rate": 1.0,
       "asbr_reachable": false
     },
-    "recv_time": 1775331782.9878142
+    "recv_time": 1775370266.332226
   },
   {
-    "timestamp": 1775331783.0016682,
-    "datetime": "2026-04-04T19:43:03.001669",
+    "timestamp": 1775370266.347691,
+    "datetime": "2026-04-05T06:24:26.347693",
     "event": "reconvergence",
     "domain_id": "A",
     "method": "ADSO",
@@ -1616,14 +960,14 @@
       17012,
       18001
     ],
-    "reconv_ms": 13.679,
-    "adso_push_ms": 13.679,
+    "reconv_ms": 15.25,
+    "adso_push_ms": 15.25,
     "recompute_ms": 0.042,
-    "push_ms": 13.441
+    "push_ms": 14.975
   },
   {
-    "timestamp": 1775331783.4943886,
-    "datetime": "2026-04-04T19:43:03.494389",
+    "timestamp": 1775370266.8371,
+    "datetime": "2026-04-05T06:24:26.837102",
     "event": "adso_notification",
     "domain_id": "A",
     "reasons": [
@@ -1632,18 +976,18 @@
     ],
     "metrics": {
       "domain_id": "A",
-      "timestamp": 1775331783.4940042,
+      "timestamp": 1775370266.8367434,
       "min_delay_ms": 50.0,
       "max_bandwidth_mbps": 0.0,
       "max_sid_depth": 8,
       "packet_loss_rate": 1.0,
       "asbr_reachable": false
     },
-    "recv_time": 1775331783.4941993
+    "recv_time": 1775370266.836896
   },
   {
-    "timestamp": 1775331783.5030699,
-    "datetime": "2026-04-04T19:43:03.503071",
+    "timestamp": 1775370266.8453891,
+    "datetime": "2026-04-05T06:24:26.845391",
     "event": "reconvergence",
     "domain_id": "A",
     "method": "ADSO",
@@ -1657,14 +1001,137 @@
       17012,
       18001
     ],
-    "reconv_ms": 8.707,
-    "adso_push_ms": 8.707,
+    "reconv_ms": 8.106,
+    "adso_push_ms": 8.106,
+    "recompute_ms": 0.058,
+    "push_ms": 7.825
+  },
+  {
+    "timestamp": 1775370267.8470607,
+    "datetime": "2026-04-05T06:24:27.847062",
+    "event": "adso_notification",
+    "domain_id": "A",
+    "reasons": [
+      "delay_threshold:50.0ms>8.0ms",
+      "loss_threshold:100.0%"
+    ],
+    "metrics": {
+      "domain_id": "A",
+      "timestamp": 1775370267.846766,
+      "min_delay_ms": 50.0,
+      "max_bandwidth_mbps": 0.0,
+      "max_sid_depth": 8,
+      "packet_loss_rate": 1.0,
+      "asbr_reachable": false
+    },
+    "recv_time": 1775370267.846899
+  },
+  {
+    "timestamp": 1775370267.8638394,
+    "datetime": "2026-04-05T06:24:27.863841",
+    "event": "reconvergence",
+    "domain_id": "A",
+    "method": "ADSO",
+    "reasons": [
+      "delay_threshold:50.0ms>8.0ms",
+      "loss_threshold:100.0%"
+    ],
+    "segment_list": [
+      16001,
+      16010,
+      17012,
+      18001
+    ],
+    "reconv_ms": 16.721,
+    "adso_push_ms": 16.721,
+    "recompute_ms": 0.031,
+    "push_ms": 16.511
+  },
+  {
+    "timestamp": 1775370268.3590963,
+    "datetime": "2026-04-05T06:24:28.359097",
+    "event": "adso_notification",
+    "domain_id": "A",
+    "reasons": [
+      "delay_threshold:50.0ms>8.0ms",
+      "loss_threshold:100.0%"
+    ],
+    "metrics": {
+      "domain_id": "A",
+      "timestamp": 1775370268.3587697,
+      "min_delay_ms": 50.0,
+      "max_bandwidth_mbps": 0.0,
+      "max_sid_depth": 8,
+      "packet_loss_rate": 1.0,
+      "asbr_reachable": false
+    },
+    "recv_time": 1775370268.3589444
+  },
+  {
+    "timestamp": 1775370268.3779454,
+    "datetime": "2026-04-05T06:24:28.377947",
+    "event": "reconvergence",
+    "domain_id": "A",
+    "method": "ADSO",
+    "reasons": [
+      "delay_threshold:50.0ms>8.0ms",
+      "loss_threshold:100.0%"
+    ],
+    "segment_list": [
+      16001,
+      16010,
+      17012,
+      18001
+    ],
+    "reconv_ms": 18.834,
+    "adso_push_ms": 18.834,
+    "recompute_ms": 0.083,
+    "push_ms": 18.579
+  },
+  {
+    "timestamp": 1775370268.8722997,
+    "datetime": "2026-04-05T06:24:28.872301",
+    "event": "adso_notification",
+    "domain_id": "A",
+    "reasons": [
+      "delay_threshold:50.0ms>8.0ms",
+      "loss_threshold:100.0%"
+    ],
+    "metrics": {
+      "domain_id": "A",
+      "timestamp": 1775370268.8720064,
+      "min_delay_ms": 50.0,
+      "max_bandwidth_mbps": 0.0,
+      "max_sid_depth": 8,
+      "packet_loss_rate": 1.0,
+      "asbr_reachable": false
+    },
+    "recv_time": 1775370268.872153
+  },
+  {
+    "timestamp": 1775370268.8888583,
+    "datetime": "2026-04-05T06:24:28.888860",
+    "event": "reconvergence",
+    "domain_id": "A",
+    "method": "ADSO",
+    "reasons": [
+      "delay_threshold:50.0ms>8.0ms",
+      "loss_threshold:100.0%"
+    ],
+    "segment_list": [
+      16001,
+      16010,
+      17012,
+      18001
+    ],
+    "reconv_ms": 16.547,
+    "adso_push_ms": 16.547,
     "recompute_ms": 0.026,
-    "push_ms": 8.459
+    "push_ms": 16.36
   },
   {
-    "timestamp": 1775331784.4593987,
-    "datetime": "2026-04-04T19:43:04.459400",
+    "timestamp": 1775370269.3899982,
+    "datetime": "2026-04-05T06:24:29.389999",
     "event": "adso_notification",
     "domain_id": "A",
     "reasons": [
@@ -1673,18 +1140,18 @@
     ],
     "metrics": {
       "domain_id": "A",
-      "timestamp": 1775331784.4590814,
+      "timestamp": 1775370269.3897257,
       "min_delay_ms": 50.0,
       "max_bandwidth_mbps": 0.0,
       "max_sid_depth": 8,
       "packet_loss_rate": 1.0,
       "asbr_reachable": false
     },
-    "recv_time": 1775331784.4592304
+    "recv_time": 1775370269.3898504
   },
   {
-    "timestamp": 1775331784.4658568,
-    "datetime": "2026-04-04T19:43:04.465858",
+    "timestamp": 1775370269.4042165,
+    "datetime": "2026-04-05T06:24:29.404218",
     "event": "reconvergence",
     "domain_id": "A",
     "method": "ADSO",
@@ -1698,14 +1165,14 @@
       17012,
       18001
     ],
-    "reconv_ms": 6.473,
-    "adso_push_ms": 6.473,
-    "recompute_ms": 0.036,
-    "push_ms": 6.25
+    "reconv_ms": 14.211,
+    "adso_push_ms": 14.211,
+    "recompute_ms": 0.059,
+    "push_ms": 13.99
   },
   {
-    "timestamp": 1775331785.4648745,
-    "datetime": "2026-04-04T19:43:05.464875",
+    "timestamp": 1775370269.9020936,
+    "datetime": "2026-04-05T06:24:29.902094",
     "event": "adso_notification",
     "domain_id": "A",
     "reasons": [
@@ -1714,18 +1181,18 @@
     ],
     "metrics": {
       "domain_id": "A",
-      "timestamp": 1775331785.464586,
+      "timestamp": 1775370269.901799,
       "min_delay_ms": 50.0,
       "max_bandwidth_mbps": 0.0,
       "max_sid_depth": 8,
       "packet_loss_rate": 1.0,
       "asbr_reachable": false
     },
-    "recv_time": 1775331785.4647005
+    "recv_time": 1775370269.9019525
   },
   {
-    "timestamp": 1775331785.4799845,
-    "datetime": "2026-04-04T19:43:05.479985",
+    "timestamp": 1775370269.9148698,
+    "datetime": "2026-04-05T06:24:29.914872",
     "event": "reconvergence",
     "domain_id": "A",
     "method": "ADSO",
@@ -1739,14 +1206,14 @@
       17012,
       18001
     ],
-    "reconv_ms": 15.137,
-    "adso_push_ms": 15.137,
-    "recompute_ms": 0.062,
-    "push_ms": 14.883
+    "reconv_ms": 12.744,
+    "adso_push_ms": 12.744,
+    "recompute_ms": 0.073,
+    "push_ms": 12.514
   },
   {
-    "timestamp": 1775331786.4520218,
-    "datetime": "2026-04-04T19:43:06.452023",
+    "timestamp": 1775370270.41168,
+    "datetime": "2026-04-05T06:24:30.411681",
     "event": "adso_notification",
     "domain_id": "A",
     "reasons": [
@@ -1755,18 +1222,18 @@
     ],
     "metrics": {
       "domain_id": "A",
-      "timestamp": 1775331786.4517584,
+      "timestamp": 1775370270.4113383,
       "min_delay_ms": 50.0,
       "max_bandwidth_mbps": 0.0,
       "max_sid_depth": 8,
       "packet_loss_rate": 1.0,
       "asbr_reachable": false
     },
-    "recv_time": 1775331786.4518652
+    "recv_time": 1775370270.4115186
   },
   {
-    "timestamp": 1775331786.4577997,
-    "datetime": "2026-04-04T19:43:06.457801",
+    "timestamp": 1775370270.4297981,
+    "datetime": "2026-04-05T06:24:30.429800",
     "event": "reconvergence",
     "domain_id": "A",
     "method": "ADSO",
@@ -1780,14 +1247,14 @@
       17012,
       18001
     ],
-    "reconv_ms": 5.78,
-    "adso_push_ms": 5.78,
-    "recompute_ms": 0.03,
-    "push_ms": 5.573
+    "reconv_ms": 15.722,
+    "adso_push_ms": 15.722,
+    "recompute_ms": 0.06,
+    "push_ms": 15.484
   },
   {
-    "timestamp": 1775331786.956713,
-    "datetime": "2026-04-04T19:43:06.956714",
+    "timestamp": 1775370270.920181,
+    "datetime": "2026-04-05T06:24:30.920182",
     "event": "adso_notification",
     "domain_id": "A",
     "reasons": [
@@ -1796,18 +1263,18 @@
     ],
     "metrics": {
       "domain_id": "A",
-      "timestamp": 1775331786.956337,
+      "timestamp": 1775370270.919874,
       "min_delay_ms": 50.0,
       "max_bandwidth_mbps": 0.0,
       "max_sid_depth": 8,
       "packet_loss_rate": 1.0,
       "asbr_reachable": false
     },
-    "recv_time": 1775331786.9564378
+    "recv_time": 1775370270.9200056
   },
   {
-    "timestamp": 1775331786.968442,
-    "datetime": "2026-04-04T19:43:06.968443",
+    "timestamp": 1775370270.9405253,
+    "datetime": "2026-04-05T06:24:30.940527",
     "event": "reconvergence",
     "domain_id": "A",
     "method": "ADSO",
@@ -1821,14 +1288,14 @@
       17012,
       18001
     ],
-    "reconv_ms": 11.86,
-    "adso_push_ms": 11.86,
-    "recompute_ms": 0.051,
-    "push_ms": 11.514
+    "reconv_ms": 20.31,
+    "adso_push_ms": 20.31,
+    "recompute_ms": 0.044,
+    "push_ms": 20.056
   },
   {
-    "timestamp": 1775331787.4764895,
-    "datetime": "2026-04-04T19:43:07.476491",
+    "timestamp": 1775370271.4321043,
+    "datetime": "2026-04-05T06:24:31.432106",
     "event": "adso_notification",
     "domain_id": "A",
     "reasons": [
@@ -1837,18 +1304,18 @@
     ],
     "metrics": {
       "domain_id": "A",
-      "timestamp": 1775331787.4761324,
+      "timestamp": 1775370271.4317086,
       "min_delay_ms": 50.0,
       "max_bandwidth_mbps": 0.0,
       "max_sid_depth": 8,
       "packet_loss_rate": 1.0,
       "asbr_reachable": false
     },
-    "recv_time": 1775331787.476311
+    "recv_time": 1775370271.4318545
   },
   {
-    "timestamp": 1775331787.482295,
-    "datetime": "2026-04-04T19:43:07.482296",
+    "timestamp": 1775370271.4520304,
+    "datetime": "2026-04-05T06:24:31.452033",
     "event": "reconvergence",
     "domain_id": "A",
     "method": "ADSO",
@@ -1862,14 +1329,55 @@
       17012,
       18001
     ],
-    "reconv_ms": 5.87,
-    "adso_push_ms": 5.87,
+    "reconv_ms": 19.969,
+    "adso_push_ms": 19.969,
+    "recompute_ms": 0.043,
+    "push_ms": 19.624
+  },
+  {
+    "timestamp": 1775370271.9487379,
+    "datetime": "2026-04-05T06:24:31.948739",
+    "event": "adso_notification",
+    "domain_id": "A",
+    "reasons": [
+      "delay_threshold:50.0ms>8.0ms",
+      "loss_threshold:100.0%"
+    ],
+    "metrics": {
+      "domain_id": "A",
+      "timestamp": 1775370271.948371,
+      "min_delay_ms": 50.0,
+      "max_bandwidth_mbps": 0.0,
+      "max_sid_depth": 8,
+      "packet_loss_rate": 1.0,
+      "asbr_reachable": false
+    },
+    "recv_time": 1775370271.9485276
+  },
+  {
+    "timestamp": 1775370271.9689481,
+    "datetime": "2026-04-05T06:24:31.968950",
+    "event": "reconvergence",
+    "domain_id": "A",
+    "method": "ADSO",
+    "reasons": [
+      "delay_threshold:50.0ms>8.0ms",
+      "loss_threshold:100.0%"
+    ],
+    "segment_list": [
+      16001,
+      16010,
+      17012,
+      18001
+    ],
+    "reconv_ms": 20.227,
+    "adso_push_ms": 20.227,
     "recompute_ms": 0.097,
-    "push_ms": 5.578
+    "push_ms": 19.9
   },
   {
-    "timestamp": 1775331788.4638991,
-    "datetime": "2026-04-04T19:43:08.463900",
+    "timestamp": 1775370272.4579604,
+    "datetime": "2026-04-05T06:24:32.457962",
     "event": "adso_notification",
     "domain_id": "A",
     "reasons": [
@@ -1878,18 +1386,18 @@
     ],
     "metrics": {
       "domain_id": "A",
-      "timestamp": 1775331788.4636242,
+      "timestamp": 1775370272.4569085,
       "min_delay_ms": 50.0,
       "max_bandwidth_mbps": 0.0,
       "max_sid_depth": 8,
       "packet_loss_rate": 1.0,
       "asbr_reachable": false
     },
-    "recv_time": 1775331788.463765
+    "recv_time": 1775370272.4572513
   },
   {
-    "timestamp": 1775331788.4716818,
-    "datetime": "2026-04-04T19:43:08.471684",
+    "timestamp": 1775370272.4730814,
+    "datetime": "2026-04-05T06:24:32.473084",
     "event": "reconvergence",
     "domain_id": "A",
     "method": "ADSO",
@@ -1903,14 +1411,14 @@
       17012,
       18001
     ],
-    "reconv_ms": 7.75,
-    "adso_push_ms": 7.75,
-    "recompute_ms": 0.05,
-    "push_ms": 7.549
+    "reconv_ms": 15.632,
+    "adso_push_ms": 15.632,
+    "recompute_ms": 0.073,
+    "push_ms": 14.499
   },
   {
-    "timestamp": 1775331788.9649465,
-    "datetime": "2026-04-04T19:43:08.964948",
+    "timestamp": 1775370273.4621215,
+    "datetime": "2026-04-05T06:24:33.462123",
     "event": "adso_notification",
     "domain_id": "A",
     "reasons": [
@@ -1919,18 +1427,18 @@
     ],
     "metrics": {
       "domain_id": "A",
-      "timestamp": 1775331788.9644732,
+      "timestamp": 1775370273.4616978,
       "min_delay_ms": 50.0,
       "max_bandwidth_mbps": 0.0,
       "max_sid_depth": 8,
       "packet_loss_rate": 1.0,
       "asbr_reachable": false
     },
-    "recv_time": 1775331788.9646862
+    "recv_time": 1775370273.4618487
   },
   {
-    "timestamp": 1775331788.9771843,
-    "datetime": "2026-04-04T19:43:08.977186",
+    "timestamp": 1775370273.4841826,
+    "datetime": "2026-04-05T06:24:33.484185",
     "event": "reconvergence",
     "domain_id": "A",
     "method": "ADSO",
@@ -1944,14 +1452,14 @@
       17012,
       18001
     ],
-    "reconv_ms": 12.299,
-    "adso_push_ms": 12.299,
-    "recompute_ms": 0.07,
-    "push_ms": 11.945
+    "reconv_ms": 21.525,
+    "adso_push_ms": 21.525,
+    "recompute_ms": 0.072,
+    "push_ms": 21.153
   },
   {
-    "timestamp": 1775331789.971513,
-    "datetime": "2026-04-04T19:43:09.971514",
+    "timestamp": 1775370273.9981308,
+    "datetime": "2026-04-05T06:24:33.998131",
     "event": "adso_notification",
     "domain_id": "A",
     "reasons": [
@@ -1960,18 +1468,18 @@
     ],
     "metrics": {
       "domain_id": "A",
-      "timestamp": 1775331789.971164,
+      "timestamp": 1775370273.9978004,
       "min_delay_ms": 50.0,
       "max_bandwidth_mbps": 0.0,
       "max_sid_depth": 8,
       "packet_loss_rate": 1.0,
       "asbr_reachable": false
     },
-    "recv_time": 1775331789.9713032
+    "recv_time": 1775370273.997995
   },
   {
-    "timestamp": 1775331789.9791393,
-    "datetime": "2026-04-04T19:43:09.979141",
+    "timestamp": 1775370274.013247,
+    "datetime": "2026-04-05T06:24:34.013249",
     "event": "reconvergence",
     "domain_id": "A",
     "method": "ADSO",
@@ -1985,14 +1493,219 @@
       17012,
       18001
     ],
-    "reconv_ms": 7.634,
-    "adso_push_ms": 7.634,
-    "recompute_ms": 0.079,
-    "push_ms": 7.324
+    "reconv_ms": 14.935,
+    "adso_push_ms": 14.935,
+    "recompute_ms": 0.054,
+    "push_ms": 14.724
   },
   {
-    "timestamp": 1775331792.9965909,
-    "datetime": "2026-04-04T19:43:12.996592",
+    "timestamp": 1775370274.9701104,
+    "datetime": "2026-04-05T06:24:34.970112",
+    "event": "adso_notification",
+    "domain_id": "A",
+    "reasons": [
+      "delay_threshold:50.0ms>8.0ms",
+      "loss_threshold:100.0%"
+    ],
+    "metrics": {
+      "domain_id": "A",
+      "timestamp": 1775370274.96976,
+      "min_delay_ms": 50.0,
+      "max_bandwidth_mbps": 0.0,
+      "max_sid_depth": 8,
+      "packet_loss_rate": 1.0,
+      "asbr_reachable": false
+    },
+    "recv_time": 1775370274.9699326
+  },
+  {
+    "timestamp": 1775370274.9930086,
+    "datetime": "2026-04-05T06:24:34.993011",
+    "event": "reconvergence",
+    "domain_id": "A",
+    "method": "ADSO",
+    "reasons": [
+      "delay_threshold:50.0ms>8.0ms",
+      "loss_threshold:100.0%"
+    ],
+    "segment_list": [
+      16001,
+      16010,
+      17012,
+      18001
+    ],
+    "reconv_ms": 22.377,
+    "adso_push_ms": 22.377,
+    "recompute_ms": 0.043,
+    "push_ms": 22.136
+  },
+  {
+    "timestamp": 1775370275.4897323,
+    "datetime": "2026-04-05T06:24:35.489733",
+    "event": "adso_notification",
+    "domain_id": "A",
+    "reasons": [
+      "delay_threshold:50.0ms>8.0ms",
+      "loss_threshold:100.0%"
+    ],
+    "metrics": {
+      "domain_id": "A",
+      "timestamp": 1775370275.4892683,
+      "min_delay_ms": 50.0,
+      "max_bandwidth_mbps": 0.0,
+      "max_sid_depth": 8,
+      "packet_loss_rate": 1.0,
+      "asbr_reachable": false
+    },
+    "recv_time": 1775370275.4895582
+  },
+  {
+    "timestamp": 1775370275.5086625,
+    "datetime": "2026-04-05T06:24:35.508665",
+    "event": "reconvergence",
+    "domain_id": "A",
+    "method": "ADSO",
+    "reasons": [
+      "delay_threshold:50.0ms>8.0ms",
+      "loss_threshold:100.0%"
+    ],
+    "segment_list": [
+      16001,
+      16010,
+      17012,
+      18001
+    ],
+    "reconv_ms": 18.663,
+    "adso_push_ms": 18.663,
+    "recompute_ms": 0.04,
+    "push_ms": 18.431
+  },
+  {
+    "timestamp": 1775370276.0001717,
+    "datetime": "2026-04-05T06:24:36.000173",
+    "event": "adso_notification",
+    "domain_id": "A",
+    "reasons": [
+      "delay_threshold:50.0ms>8.0ms",
+      "loss_threshold:100.0%"
+    ],
+    "metrics": {
+      "domain_id": "A",
+      "timestamp": 1775370275.9998507,
+      "min_delay_ms": 50.0,
+      "max_bandwidth_mbps": 0.0,
+      "max_sid_depth": 8,
+      "packet_loss_rate": 1.0,
+      "asbr_reachable": false
+    },
+    "recv_time": 1775370276.0000293
+  },
+  {
+    "timestamp": 1775370276.007162,
+    "datetime": "2026-04-05T06:24:36.007163",
+    "event": "reconvergence",
+    "domain_id": "A",
+    "method": "ADSO",
+    "reasons": [
+      "delay_threshold:50.0ms>8.0ms",
+      "loss_threshold:100.0%"
+    ],
+    "segment_list": [
+      16001,
+      16010,
+      17012,
+      18001
+    ],
+    "reconv_ms": 6.869,
+    "adso_push_ms": 6.869,
+    "recompute_ms": 0.029,
+    "push_ms": 6.675
+  },
+  {
+    "timestamp": 1775370276.5027347,
+    "datetime": "2026-04-05T06:24:36.502736",
+    "event": "adso_notification",
+    "domain_id": "A",
+    "reasons": [
+      "delay_threshold:50.0ms>8.0ms",
+      "loss_threshold:100.0%"
+    ],
+    "metrics": {
+      "domain_id": "A",
+      "timestamp": 1775370276.5024443,
+      "min_delay_ms": 50.0,
+      "max_bandwidth_mbps": 0.0,
+      "max_sid_depth": 8,
+      "packet_loss_rate": 1.0,
+      "asbr_reachable": false
+    },
+    "recv_time": 1775370276.5026014
+  },
+  {
+    "timestamp": 1775370276.519292,
+    "datetime": "2026-04-05T06:24:36.519294",
+    "event": "reconvergence",
+    "domain_id": "A",
+    "method": "ADSO",
+    "reasons": [
+      "delay_threshold:50.0ms>8.0ms",
+      "loss_threshold:100.0%"
+    ],
+    "segment_list": [
+      16001,
+      16010,
+      17012,
+      18001
+    ],
+    "reconv_ms": 16.45,
+    "adso_push_ms": 16.45,
+    "recompute_ms": 0.042,
+    "push_ms": 16.257
+  },
+  {
+    "timestamp": 1775370277.0081677,
+    "datetime": "2026-04-05T06:24:37.008168",
+    "event": "adso_notification",
+    "domain_id": "A",
+    "reasons": [
+      "delay_threshold:50.0ms>8.0ms",
+      "loss_threshold:100.0%"
+    ],
+    "metrics": {
+      "domain_id": "A",
+      "timestamp": 1775370277.0078669,
+      "min_delay_ms": 50.0,
+      "max_bandwidth_mbps": 0.0,
+      "max_sid_depth": 8,
+      "packet_loss_rate": 1.0,
+      "asbr_reachable": false
+    },
+    "recv_time": 1775370277.0079992
+  },
+  {
+    "timestamp": 1775370277.0324862,
+    "datetime": "2026-04-05T06:24:37.032489",
+    "event": "reconvergence",
+    "domain_id": "A",
+    "method": "ADSO",
+    "reasons": [
+      "delay_threshold:50.0ms>8.0ms",
+      "loss_threshold:100.0%"
+    ],
+    "segment_list": [
+      16001,
+      16010,
+      17012,
+      18001
+    ],
+    "reconv_ms": 23.457,
+    "adso_push_ms": 23.457,
+    "recompute_ms": 0.026,
+    "push_ms": 23.244
+  },
+  {
+    "timestamp": 1775370279.552307,
+    "datetime": "2026-04-05T06:24:39.552308",
     "event": "adso_notification",
     "domain_id": "A",
     "reasons": [
@@ -2002,18 +1715,18 @@
     ],
     "metrics": {
       "domain_id": "A",
-      "timestamp": 1775331792.9958782,
+      "timestamp": 1775370279.5520723,
       "min_delay_ms": 2.0,
       "max_bandwidth_mbps": 250.0,
       "max_sid_depth": 8,
       "packet_loss_rate": 0.0,
       "asbr_reachable": true
     },
-    "recv_time": 1775331792.9961004
+    "recv_time": 1775370279.5521681
   },
   {
-    "timestamp": 1775331793.0109074,
-    "datetime": "2026-04-04T19:43:13.010909",
+    "timestamp": 1775370279.5622334,
+    "datetime": "2026-04-05T06:24:39.562235",
     "event": "reconvergence",
     "domain_id": "A",
     "method": "ADSO",
@@ -2028,14 +1741,14 @@
       17012,
       18001
     ],
-    "reconv_ms": 14.643,
-    "adso_push_ms": 14.643,
-    "recompute_ms": 0.067,
-    "push_ms": 14.061
+    "reconv_ms": 9.862,
+    "adso_push_ms": 9.862,
+    "recompute_ms": 0.025,
+    "push_ms": 9.68
   },
   {
-    "timestamp": 1775331799.2076046,
-    "datetime": "2026-04-04T19:43:19.207606",
+    "timestamp": 1775370285.825125,
+    "datetime": "2026-04-05T06:24:45.825126",
     "event": "adso_notification",
     "domain_id": "A",
     "reasons": [
@@ -2043,18 +1756,18 @@
     ],
     "metrics": {
       "domain_id": "A",
-      "timestamp": 1775331799.2059057,
+      "timestamp": 1775370285.8248723,
       "min_delay_ms": 2.0,
       "max_bandwidth_mbps": 500.0,
       "max_sid_depth": 8,
       "packet_loss_rate": 0.0,
       "asbr_reachable": true
     },
-    "recv_time": 1775331799.2061431
+    "recv_time": 1775370285.825005
   },
   {
-    "timestamp": 1775331799.2187538,
-    "datetime": "2026-04-04T19:43:19.218755",
+    "timestamp": 1775370285.8336225,
+    "datetime": "2026-04-05T06:24:45.833624",
     "event": "reconvergence",
     "domain_id": "A",
     "method": "ADSO",
@@ -2067,14 +1780,14 @@
       17012,
       18001
     ],
-    "reconv_ms": 12.443,
-    "adso_push_ms": 12.443,
-    "recompute_ms": 0.1,
-    "push_ms": 10.852
+    "reconv_ms": 8.443,
+    "adso_push_ms": 8.443,
+    "recompute_ms": 0.024,
+    "push_ms": 8.269
   },
   {
-    "timestamp": 1775331799.237113,
-    "datetime": "2026-04-04T19:43:19.237114",
+    "timestamp": 1775370286.3127239,
+    "datetime": "2026-04-05T06:24:46.312726",
     "event": "adso_notification",
     "domain_id": "B",
     "reasons": [
@@ -2082,18 +1795,18 @@
     ],
     "metrics": {
       "domain_id": "B",
-      "timestamp": 1775331799.2364218,
+      "timestamp": 1775370286.3116868,
       "min_delay_ms": 2.0,
       "max_bandwidth_mbps": 375.0,
       "max_sid_depth": 8,
       "packet_loss_rate": 0.0,
       "asbr_reachable": true
     },
-    "recv_time": 1775331799.2365806
+    "recv_time": 1775370286.311833
   },
   {
-    "timestamp": 1775331799.2453256,
-    "datetime": "2026-04-04T19:43:19.245327",
+    "timestamp": 1775370286.3210547,
+    "datetime": "2026-04-05T06:24:46.321056",
     "event": "reconvergence",
     "domain_id": "B",
     "method": "ADSO",
@@ -2106,14 +1819,14 @@
       17012,
       18001
     ],
-    "reconv_ms": 8.553,
-    "adso_push_ms": 8.553,
-    "recompute_ms": 0.281,
-    "push_ms": 7.7
+    "reconv_ms": 8.874,
+    "adso_push_ms": 8.874,
+    "recompute_ms": 0.079,
+    "push_ms": 7.885
   },
   {
-    "timestamp": 1775331807.3947265,
-    "datetime": "2026-04-04T19:43:27.394728",
+    "timestamp": 1775370294.5799534,
+    "datetime": "2026-04-05T06:24:54.579954",
     "event": "adso_notification",
     "domain_id": "B",
     "reasons": [
@@ -2121,18 +1834,18 @@
     ],
     "metrics": {
       "domain_id": "B",
-      "timestamp": 1775331807.3938677,
+      "timestamp": 1775370294.5797033,
       "min_delay_ms": 2.0,
       "max_bandwidth_mbps": 500.0,
       "max_sid_depth": 8,
       "packet_loss_rate": 0.0,
       "asbr_reachable": true
     },
-    "recv_time": 1775331807.3940582
+    "recv_time": 1775370294.579836
   },
   {
-    "timestamp": 1775331807.4078088,
-    "datetime": "2026-04-04T19:43:27.407810",
+    "timestamp": 1775370294.598536,
+    "datetime": "2026-04-05T06:24:54.598537",
     "event": "reconvergence",
     "domain_id": "B",
     "method": "ADSO",
@@ -2145,69 +1858,69 @@
       17012,
       18001
     ],
-    "reconv_ms": 13.616,
-    "adso_push_ms": 13.616,
-    "recompute_ms": 0.197,
-    "push_ms": 12.725
+    "reconv_ms": 18.553,
+    "adso_push_ms": 18.553,
+    "recompute_ms": 0.043,
+    "push_ms": 18.362
   },
   {
-    "timestamp": 1775331927.0560422,
-    "datetime": "2026-04-04T19:45:27.056044",
-    "event": "reconvergence",
-    "domain_id": "B",
-    "method": "no_notification",
-    "reconv_ms": 445383.38648231584,
-    "push_ms": 0,
-    "note": "Theoretical: BGP convergence time (RFC 4271 hold timer expiry)"
-  },
-  {
-    "timestamp": 1775331927.05607,
-    "datetime": "2026-04-04T19:45:27.056070",
-    "event": "reconvergence",
-    "domain_id": "B",
-    "method": "oracle",
-    "reconv_ms": 9.088654667635424,
-    "push_ms": 6.272929152815626,
-    "note": "Theoretical upper bound: requires full topology disclosure"
-  },
-  {
-    "timestamp": 1775331927.0560722,
-    "datetime": "2026-04-04T19:45:27.056072",
-    "event": "reconvergence",
-    "domain_id": "C",
-    "method": "no_notification",
-    "reconv_ms": 379698.3611945396,
-    "push_ms": 0,
-    "note": "Theoretical: BGP convergence time (RFC 4271 hold timer expiry)"
-  },
-  {
-    "timestamp": 1775331927.0560756,
-    "datetime": "2026-04-04T19:45:27.056075",
-    "event": "reconvergence",
-    "domain_id": "C",
-    "method": "oracle",
-    "reconv_ms": 13.154603114345925,
-    "push_ms": 5.795041184324643,
-    "note": "Theoretical upper bound: requires full topology disclosure"
-  },
-  {
-    "timestamp": 1775331927.0560772,
-    "datetime": "2026-04-04T19:45:27.056077",
+    "timestamp": 1775370324.5821369,
+    "datetime": "2026-04-05T06:25:24.582138",
     "event": "reconvergence",
     "domain_id": "A",
     "method": "no_notification",
-    "reconv_ms": 308913.9002404213,
+    "reconv_ms": 492450.7112467685,
     "push_ms": 0,
     "note": "Theoretical: BGP convergence time (RFC 4271 hold timer expiry)"
   },
   {
-    "timestamp": 1775331927.0560791,
-    "datetime": "2026-04-04T19:45:27.056079",
+    "timestamp": 1775370324.58215,
+    "datetime": "2026-04-05T06:25:24.582150",
     "event": "reconvergence",
     "domain_id": "A",
     "method": "oracle",
-    "reconv_ms": 5.45636457347268,
-    "push_ms": 7.652404843782952,
-    "note": "Theoretical upper bound: requires full topology disclosure"
+    "reconv_ms": 6.751432310535764,
+    "push_ms": 6.714972826214147,
+    "note": "Theoretical: full topology disclosure, no ADSO messaging overhead"
+  },
+  {
+    "timestamp": 1775370324.5821528,
+    "datetime": "2026-04-05T06:25:24.582153",
+    "event": "reconvergence",
+    "domain_id": "B",
+    "method": "no_notification",
+    "reconv_ms": 310147.2988805936,
+    "push_ms": 0,
+    "note": "Theoretical: BGP convergence time (RFC 4271 hold timer expiry)"
+  },
+  {
+    "timestamp": 1775370324.5821557,
+    "datetime": "2026-04-05T06:25:24.582155",
+    "event": "reconvergence",
+    "domain_id": "B",
+    "method": "oracle",
+    "reconv_ms": 7.287121843418632,
+    "push_ms": 7.2323872113815035,
+    "note": "Theoretical: full topology disclosure, no ADSO messaging overhead"
+  },
+  {
+    "timestamp": 1775370324.582158,
+    "datetime": "2026-04-05T06:25:24.582158",
+    "event": "reconvergence",
+    "domain_id": "C",
+    "method": "no_notification",
+    "reconv_ms": 406467.644873668,
+    "push_ms": 0,
+    "note": "Theoretical: BGP convergence time (RFC 4271 hold timer expiry)"
+  },
+  {
+    "timestamp": 1775370324.582161,
+    "datetime": "2026-04-05T06:25:24.582160",
+    "event": "reconvergence",
+    "domain_id": "C",
+    "method": "oracle",
+    "reconv_ms": 5.654820789580261,
+    "push_ms": 5.61418109032158,
+    "note": "Theoretical: full topology disclosure, no ADSO messaging overhead"
   }
 ]
