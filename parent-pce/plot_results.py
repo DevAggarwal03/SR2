@@ -131,11 +131,11 @@ def extract_notifications(events: list) -> dict:
 # ─────────────────────────────────────────────
 
 def print_table_r1(reconv_data: dict):
-    print("\n" + "="*70)
+    print("\n" + "="*78)
     print("  TABLE R1 — Re-convergence Time (ms)")
-    print("="*70)
-    print(f"  {'Scenario':<22} {'ADSO':>12} {'No-Notif':>14} {'Oracle':>10} {'ADSO vs Oracle':>16}")
-    print("-"*70)
+    print("="*78)
+    print(f"  {'Scenario':<22} {'ADSO (mean±std)':>18} {'N':>4} {'No-Notif':>14} {'Oracle':>10} {'Overhead':>10}")
+    print("-"*78)
 
     for scenario in ['S1', 'S2', 'S3', 'S4']:
         d = reconv_data.get(scenario, {})
@@ -144,23 +144,29 @@ def print_table_r1(reconv_data: dict):
         oracle     = d.get('oracle', [0])
 
         adso_ms    = np.mean(adso_vals)
+        adso_std   = np.std(adso_vals, ddof=1) if len(adso_vals) > 1 else 0.0
         nonotif_ms = np.mean(nonotif)
         oracle_ms  = np.mean(oracle)
+        n_samples  = len(adso_vals)
 
         overhead = ((adso_ms - oracle_ms) / oracle_ms * 100) if oracle_ms > 0 else 0
         label    = SCENARIO_LABELS.get(scenario, scenario)
 
+        adso_str = f"{adso_ms:.1f}±{adso_std:.1f}" if adso_std > 0 else f"{adso_ms:.1f}"
+
         print(
             f"  {label:<22} "
-            f"{adso_ms:>10.1f}ms "
+            f"{adso_str:>16}ms "
+            f"{n_samples:>4} "
             f"{nonotif_ms:>12.0f}ms "
             f"{oracle_ms:>8.1f}ms "
-            f"{overhead:>+14.1f}%"
+            f"{overhead:>+9.1f}%"
         )
 
-    print("="*70)
-    print("  Note: No-Notification baseline requires full BGP re-convergence")
-    print("        ADSO achieves near-oracle performance without topology disclosure")
+    print("="*78)
+    print("  Note: ADSO times are post-notification pipeline (receipt → push).")
+    print("        No-Notification baseline requires full BGP re-convergence.")
+    print("        ADSO achieves near-oracle performance without topology disclosure.")
     print()
 
 
@@ -250,24 +256,36 @@ def plot_r1_bar_chart(reconv_data: dict, output_dir: str):
 
     for i, method in enumerate(methods):
         vals = []
+        stds = []
         raw_vals = []
         for s in scenarios:
             d = reconv_data.get(s, {})
-            v = np.mean(d.get(method, [0]))
+            method_vals = d.get(method, [0])
+            v = np.mean(method_vals)
+            sd = np.std(method_vals, ddof=1) if len(method_vals) > 1 else 0.0
             raw_vals.append(v)
             # Cap no_notification for chart readability
             if method == 'no_notification' and v > 1000:
                 v = 1000
+                sd = 0  # don't show error bar for capped value
             vals.append(max(v, 0.1))    # avoid log(0)
+            stds.append(sd)
 
-        bars = ax.bar(
-            x + i * width, vals, width,
+        # Only show error bars if we have meaningful std dev
+        has_errorbars = any(s > 0 for s in stds)
+        bar_kwargs = dict(
             label=LABELS[method],
             color=COLORS[method],
             alpha=0.85,
             edgecolor='white',
-            linewidth=0.5
+            linewidth=0.5,
         )
+        if has_errorbars:
+            bar_kwargs['yerr'] = stds
+            bar_kwargs['capsize'] = 3
+            bar_kwargs['error_kw'] = {'elinewidth': 1.2, 'capthick': 1.2}
+
+        bars = ax.bar(x + i * width, vals, width, **bar_kwargs)
 
         # Add value labels on bars
         for j, (bar, raw_v) in enumerate(zip(bars, raw_vals)):
@@ -276,16 +294,30 @@ def plot_r1_bar_chart(reconv_data: dict, output_dir: str):
                 if raw_v > 1000:
                     label = f'{raw_v/1000:.0f}s'
                 else:
-                    label = f'{raw_v:.1f}ms'
+                    std_j = stds[j]
+                    if std_j > 0:
+                        label = f'{raw_v:.1f}±{std_j:.1f}'
+                    else:
+                        label = f'{raw_v:.1f}ms'
                 ax.text(
                     bar.get_x() + bar.get_width() / 2, height * 1.15,
                     label, ha='center', va='bottom', fontsize=7,
                     fontweight='bold', color=COLORS[method]
                 )
 
+    # Count samples for subtitle
+    sample_counts = []
+    for s in scenarios:
+        d = reconv_data.get(s, {})
+        n = len(d.get('ADSO', []))
+        sample_counts.append(n)
+    max_n = max(sample_counts) if sample_counts else 0
+    subtitle = f'  (N={max_n} trials per scenario)' if max_n > 1 else ''
+
     ax.set_xlabel('Failure Scenario', fontsize=12)
     ax.set_ylabel('Re-convergence Time (ms)', fontsize=12)
-    ax.set_title('TABLE R1: ADSO Re-convergence vs Baselines', fontsize=14, fontweight='bold')
+    ax.set_title(f'TABLE R1: ADSO Re-convergence vs Baselines{subtitle}',
+                 fontsize=14, fontweight='bold')
     ax.set_xticks(x + width)
     ax.set_xticklabels([SCENARIO_LABELS[s] for s in scenarios], rotation=15, ha='right', fontsize=11)
     ax.legend(fontsize=10, loc='upper left')
