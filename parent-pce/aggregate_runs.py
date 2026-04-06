@@ -14,10 +14,31 @@ Usage:
 
 import argparse
 import json
+import math
 import os
 import sys
-import numpy as np
 from collections import defaultdict
+
+try:
+    import numpy as np
+    HAS_NUMPY = True
+except ImportError:
+    HAS_NUMPY = False
+
+
+def _mean(vals):
+    if HAS_NUMPY:
+        return float(np.mean(vals))
+    return sum(vals) / len(vals) if vals else 0.0
+
+
+def _std(vals):
+    if len(vals) < 2:
+        return 0.0
+    if HAS_NUMPY:
+        return float(np.std(vals, ddof=1))
+    m = _mean(vals)
+    return math.sqrt(sum((x - m) ** 2 for x in vals) / (len(vals) - 1))
 
 
 # ─────────────────────────────────────────────
