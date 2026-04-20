@@ -305,14 +305,15 @@ def plot_r1_bar_chart(reconv_data: dict, output_dir: str):
                     fontweight='bold', color=COLORS[method]
                 )
 
-    # Count samples for subtitle
-    sample_counts = []
+    # Count samples — S3 count = actual independent trials
+    # (S1 inflates because ASBR-down generates repeated threshold events)
+    sample_counts = {}
     for s in scenarios:
         d = reconv_data.get(s, {})
-        n = len(d.get('ADSO', []))
-        sample_counts.append(n)
-    max_n = max(sample_counts) if sample_counts else 0
-    subtitle = f'  (N={max_n} trials per scenario)' if max_n > 1 else ''
+        sample_counts[s] = len(d.get('ADSO', []))
+    # Use S3 count as the true trial count (1 event per trial)
+    n_trials = sample_counts.get('S3', min(sample_counts.values()) if sample_counts else 0)
+    subtitle = f'  (N={n_trials} independent trials)' if n_trials > 1 else ''
 
     ax.set_xlabel('Failure Scenario', fontsize=12)
     ax.set_ylabel('Re-convergence Time (ms)', fontsize=12)

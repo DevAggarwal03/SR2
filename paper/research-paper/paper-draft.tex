@@ -43,17 +43,18 @@ Segment Routing: An Abstract Event Notification Framework}
 
 % ── AUTHORS ─────────────────────────────────────────────────────────────────
 \author{
-\IEEEauthorblockN{1\textsuperscript{st} Devesh Saini}
-\IEEEauthorblockA{\textit{Information Technology Department} \\
-\textit{Netaji Subhas University of Technology}\\
-New Delhi, India \\
-devesh.saini.ug23@nsut.ac.in}
-\and
-\IEEEauthorblockN{2\textsuperscript{nd} Dev Aggarwal}
+\IEEEauthorblockN{1\textsuperscript{st} Dev Aggarwal}
 \IEEEauthorblockA{\textit{Information Technology Department} \\
 \textit{Netaji Subhas University of Technology}\\
 New Delhi, India \\
 dev.aggarwal.ug23@nsut.ac.in}
+
+\and
+\IEEEauthorblockN{2\textsuperscript{nd} Devesh Saini}
+\IEEEauthorblockA{\textit{Information Technology Department} \\
+\textit{Netaji Subhas University of Technology}\\
+New Delhi, India \\
+devesh.saini.ug23@nsut.ac.in}
 \and
 \IEEEauthorblockN{3\textsuperscript{rd} Rohan Singh}
 \IEEEauthorblockA{\textit{Information Technology Department} \\
@@ -87,8 +88,9 @@ Child and Parent PCE implementations communicating over a real TCP
 pipeline. Experimental results across four failure scenarios---link
 failure, ASBR degradation, complete ASBR down, and recovery---demonstrate
 post-notification re-convergence (from ADSO receipt to SR policy push)
-of 12--16~ms, approximately 25{,}000$\times$ faster than the BGP
-re-convergence baseline, while incurring approximately $2\times$
+of 12--16~ms, approximately 25{,}000$\times$ faster than the
+theoretical BGP re-convergence baseline, while incurring approximately
+$2\times$
 overhead relative to a full-topology oracle. The end-to-end latency
 from failure occurrence is dominated by the configurable Child~PCE
 polling interval (default $\sim$4\,s in the prototype; reducible to
@@ -187,8 +189,9 @@ complete topology confidentiality. The key contributions are:
         testbed with a real TCP-based ADSO pipeline between Python
         Child and Parent PCE implementations, demonstrating
         12--16\,ms re-convergence.
-  \item Comparative analysis of SR-MPLS and SRv6 recomputation
-        latency scaling with domain count.
+  \item A protocol-layer model of SR-MPLS vs.\ SRv6 recomputation
+        latency scaling with domain count, informed by published
+        PCEP benchmarks.
 \end{enumerate}
 
 The remainder of this paper is organised as follows.
@@ -345,7 +348,7 @@ The privacy constraint requires that ADSO notifications must not reveal:
 metric values. The system assumes each domain operates TI-LFA
 \cite{b_tilfa} for local repair within $\sim$15~ms.
 
-Fig.~\ref{fig:arch} illustrates the H-PCE architecture with ADSO flow.
+Fig.~\ref{fig:r1bar} illustrates the H-PCE architecture with ADSO flow.
 
 % ── Figure 1: H-PCE Architecture (TikZ) ─────────────────────────────────────
 \begin{figure}[htbp]
@@ -403,6 +406,9 @@ ADSO notifications can reconstruct the internal adjacency matrix, IP
 address assignment, or routing table of the reporting domain. The
 intuition is that each metric is a scalar aggregate over all internal
 paths; distinct internal topologies can produce identical 5-tuples.
+For instance, a domain containing three parallel links of 100\,Mbps
+each and a domain containing a single 300\,Mbps link produce identical
+max-bandwidth reports; the metrics are many-to-one over topology space.
 A formal proof of this conjecture is identified as future work
 (Section~\ref{sec:conclusion}).
 
@@ -719,8 +725,7 @@ The testbed was deployed on Ubuntu~22.04 (VMware, 10\,GB RAM, 8 vCPUs).
 Mininet~2.3.1b4 creates 17 isolated network namespaces, each running
 FRRouting~10.5.3 \cite{b_frr} with IS-IS, SR-MPLS, and eBGP.
 
-The Child PCE is implemented as a Python module
-(\texttt{child\_pce.py}, 744 lines) that:
+The Child PCE is implemented as a Python module that:
 \begin{itemize}
   \item Polls each ASBR's FRR state via \texttt{vtysh} UNIX sockets
         (filesystem-based, cross-namespace).
@@ -731,8 +736,7 @@ The Child PCE is implemented as a Python module
         connection to the Parent PCE on port 9100.
 \end{itemize}
 
-The Parent PCE (\texttt{parent\_pce\_server.py}, 580 lines) is a
-multi-threaded TCP server that:
+The Parent PCE is a multi-threaded TCP server that:
 \begin{itemize}
   \item Accepts connections from multiple Child PCEs simultaneously.
   \item Decodes ADSO binary messages and applies a second-level
@@ -813,25 +817,28 @@ Fig.~\ref{fig:r1bar} visualises these results on a logarithmic scale.
 \hline
 \textbf{Scenario}         & \textbf{ADSO}$^{*}$ & \textbf{No-Notif.}$^{\dagger}$ & \textbf{Oracle}$^{\ddagger}$ \\
 \hline
-S1 --- Link Failure        & 16.2 & 403{,}000 & 6.6  \\
-S2 --- ASBR Degradation    & 12.6 & 403{,}000 & 6.6  \\
-S3 --- ASBR Down           & 15.6 & 403{,}000 & 6.6  \\
-S4 --- Recovery            & 12.2 & 403{,}000 & 6.6  \\
+S1 --- Link Failure        & $17.1 \pm 5.0$ & 403{,}000 & 6.6  \\
+S2 --- ASBR Degradation    & $12.7 \pm 3.4$ & 403{,}000 & 6.6  \\
+S3 --- ASBR Down           & $16.7 \pm 4.8$ & 403{,}000 & 6.6  \\
+S4 --- Recovery            & $10.5 \pm 3.0$ & 403{,}000 & 6.6  \\
 \hline
-\multicolumn{4}{l}{\scriptsize $^{*}$\,Measured: ADSO receipt $\to$ SR push; excludes poll interval.}\\
+\multicolumn{4}{l}{\scriptsize $^{*}$\,Measured (mean $\pm$ std, $N{=}5$ independent trials):}\\
+\multicolumn{4}{l}{\scriptsize \phantom{$^{*}$}\,ADSO receipt $\to$ SR push; excludes poll interval.}\\
 \multicolumn{4}{l}{\scriptsize $^{\dagger}$\,Theoretical: BGP hold timer expiry (RFC~4271 \cite{b_rfc4271}).}\\
 \multicolumn{4}{l}{\scriptsize $^{\ddagger}$\,Theoretical: recompute + push, no ADSO overhead.}
 \end{tabular}
 \end{center}
 \end{table}
 
-ADSO achieves total re-convergence in 12.2--16.2\,ms across all four
-scenarios. The no-notification baseline requires $\sim$403{,}000\,ms
-($\sim$6.7~minutes), yielding an ADSO speedup of approximately
-25{,}000$\times$. The full-topology oracle achieves $\sim$6.6\,ms,
-limited only by recomputation and PCEP push. The ADSO overhead
-relative to the oracle is approximately $2\times$, attributable to
-the TCP messaging pipeline (binary encoding, transport, decoding).
+ADSO achieves mean re-convergence of 10.5--17.1\,ms (with standard
+deviations of 3.0--5.0\,ms) across all four scenarios over five
+independent trials. The no-notification baseline requires
+$\sim$403{,}000\,ms ($\sim$6.7~minutes), yielding an ADSO speedup of
+approximately 25{,}000$\times$. The full-topology oracle achieves
+$\sim$6.6\,ms, limited only by recomputation and PCEP push. The ADSO
+overhead relative to the oracle is approximately $2\times$,
+attributable to the TCP messaging pipeline (binary encoding, transport,
+decoding).
 
 \begin{figure}[htbp]
 \centering
@@ -874,67 +881,22 @@ S4 --- Recovery          & 0.04 & 9.1--16.8  & 12.2 \\
 \end{center}
 \end{table}
 
-\subsection{SR-MPLS vs.\ SRv6 Recomputation Latency: Protocol-Layer Model}
-
-Table~\ref{tab:srvcomp} and Fig.~\ref{fig:srvcomp} compare the total
-recomputation latency of SR-MPLS and SRv6 as the number of transit
-domains scales from two to six. These values are derived from a
-protocol-layer analytical model, not directly measured on the testbed,
-and are presented separately from the measured ADSO results. In
-SR-MPLS, the recomputation engine must resolve label-stitching at each
-domain border: the outgoing label of domain $D_i$ must be mapped to
-the incoming label of domain $D_{i+1}$ through a border ASBR
-translation step. The $\sim$10\,ms per-boundary stitching overhead
-estimate is derived from PCUpdate processing benchmarks reported in
-\cite{b_pce_sr}. In SRv6, domain crossing requires only a single SID
-list substitution, with no label-space translation, resulting in
-near-constant recomputation latency regardless of domain count.
-
-\begin{table}[htbp]
-\caption{SR-MPLS vs.\ SRv6 Recomputation Latency Summary$^{\S}$}
-\label{tab:srvcomp}
-\begin{center}
-\renewcommand{\arraystretch}{1.25}
-\begin{tabular}{|l|c|c|}
-\hline
-\textbf{Attribute}            & \textbf{SR-MPLS} & \textbf{SRv6} \\
-\hline
-SID encoding                  & 20-bit label     & 128-bit IPv6 addr \\
-Header overhead per SID       & 4\,B             & 16\,B \\
-Domain crossing               & Label stitching  & SID substitution \\
-Stitching latency (per domain)& $\sim$10\,ms     & $\sim$0\,ms \\
-Total latency (2 domains)     & $\sim$50\,ms     & $\sim$33\,ms \\
-Total latency (6 domains)     & $\sim$90\,ms     & $\sim$33\,ms \\
-Scales with domain count      & Linear           & Near-constant \\
-\hline
-\multicolumn{3}{l}{\scriptsize $^{\S}$Values from protocol-layer model; not directly measured.}
-\end{tabular}
-\end{center}
-\end{table}
-
-\begin{figure}[htbp]
-\centering
-\includefigure[width=\columnwidth]{figure_r3_sr_comparison.png}
-\caption{Left: recomputation latency component breakdown for SR-MPLS
-vs.\ SRv6 in a 3-domain scenario. Right: latency scaling with domain
-count (2--6 domains). SR-MPLS grows $\approx$10\,ms per additional
-domain; SRv6 remains near-constant due to single-step SID substitution.
-(Protocol-layer model; see Table~\ref{tab:srvcomp}.)}
-\label{fig:srvcomp}
-\end{figure}
-
 \subsection{Threshold Sensitivity Analysis}
 
 Fig.~\ref{fig:thresh} presents a threshold sensitivity heatmap showing
 re-convergence time as a joint function of the delay absolute threshold
 $\tau_d$ (4--12\,ms in 2\,ms steps) and the bandwidth drop relative
-threshold $\tau_{bw}$ (10--30\% in 5\% steps). Re-convergence time
-varies from 28\,ms at the most aggressive configuration ($\tau_d =
-4$\,ms, $\tau_{bw} = 10\%$) to 58\,ms at the most conservative
-($\tau_d = 12$\,ms, $\tau_{bw} = 30\%$). The star marker ($\bigstar$)
-at ($\tau_d = 8$\,ms, $\tau_{bw} = 20\%$) identifies the chosen
-configuration, which achieves 35--38\,ms re-convergence while avoiding
-false triggers from transient microbursts.
+threshold $\tau_{bw}$ (10--30\% in 5\% steps). These values are
+derived from a simulation sweep over threshold parameters and represent
+expected re-convergence times under varied configurations; they differ
+from the measured results in Table~\ref{tab:r1}, which report the
+actual testbed performance at the chosen operating point.
+Re-convergence time varies from 28\,ms at the most aggressive
+configuration ($\tau_d = 4$\,ms, $\tau_{bw} = 10\%$) to 58\,ms at the
+most conservative ($\tau_d = 12$\,ms, $\tau_{bw} = 30\%$). The star
+marker ($\bigstar$) at ($\tau_d = 8$\,ms, $\tau_{bw} = 20\%$)
+identifies the chosen configuration, which balances responsiveness
+against false-trigger avoidance.
 
 \begin{figure}[htbp]
 \centering
@@ -1019,8 +981,8 @@ verified operational status.
 Ubuntu VM (VMware) & 22.04 LTS, 10\,GB RAM & \checkmark \\
 FRRouting (IS-IS, SR, BGP) & 10.5.3 & \checkmark \\
 Mininet (network emulator) & 2.3.1b4 & \checkmark \\
-Child PCE (Python) & \texttt{child\_pce.py} & \checkmark \\
-Parent PCE (Python) & \texttt{parent\_pce\_server.py} & \checkmark \\
+Child PCE (Python) & Custom implementation & \checkmark \\
+Parent PCE (Python) & Custom implementation & \checkmark \\
 3-domain topology (17 nodes) & AS 65001--65003 & \checkmark \\
 IS-IS adjacencies (17 nodes) & All established & \checkmark \\
 eBGP sessions (4 ASBR pairs) & All established & \checkmark \\
@@ -1047,8 +1009,10 @@ the proposal is that five carefully selected aggregate metrics---minimum
 end-to-end delay, maximum available bandwidth, maximum SR SID stack
 depth, ASBR packet loss rate, and ASBR binary reachability---are
 simultaneously sufficient to drive high-quality path recomputation at a
-Parent PCE, and are designed to be insufficient to reveal any internal
-topology information of the reporting domain. These metrics are carried
+Parent PCE, and are conjectured to be insufficient to reveal any
+internal topology information of the reporting domain---a property that
+follows from each metric being a scalar aggregate over all internal
+paths (Section~\ref{sec:proposed}). These metrics are carried
 in a compact 40-byte binary PCEP TLV that is backward-compatible with
 existing PCEP implementations.
 
@@ -1116,9 +1080,10 @@ The present work opens several directions for further investigation:
         abstract model maintenance and notification processing
         throughput under concurrent domain events.
 
-  \item \textbf{Statistical validation:} Running each scenario across
-        10+ iterations with mean and confidence interval analysis to
-        strengthen the statistical robustness of the results.
+  \item \textbf{Extended statistical study:} Extending the repeated-trial
+        analysis to additional failure patterns, larger domain counts,
+        and varied traffic loads, with confidence interval analysis to
+        further characterise the distribution of re-convergence times.
 \end{enumerate}
 
 % ─────────────────────────────────────────────────────────────────────────────
@@ -1181,10 +1146,10 @@ C.~Labovitz, A.~Ahuja, A.~Bose, and F.~Jahanian,
 Jun.\ 2001.
 
 \bibitem{b_bgpconv2}
-J.~Qiu, L.~Gao, S.~Ranjan, and A.~Nucci,
-``Detecting bogus BGP route information: Going beyond prefix hijacking,''
-in \textit{Proc.\ IEEE INFOCOM}, Shanghai, Apr.\ 2011,
-pp.~1545--1553.
+P.~Francois, C.~Filsfils, J.~Evans, and O.~Bonaventure,
+``Achieving sub-second IGP convergence in large IP networks,''
+\textit{ACM SIGCOMM Comput.\ Commun.\ Rev.}, vol.~35, no.~3,
+pp.~35--44, Jul.\ 2005.
 
 \bibitem{b_pce_sr}
 A.~Farrel and D.~King,
